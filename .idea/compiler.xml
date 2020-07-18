@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="test-other" />
+        <module name="test-mybatis" />
+        <module name="test-sso" />
+        <module name="test-disconf" />
+        <module name="test-dubbox" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="test-disconf" options="-parameters" />
+      <module name="test-dubbox" options="-parameters" />
+      <module name="test-mybatis" options="-parameters" />
+      <module name="test-other" options="-parameters" />
+      <module name="test-sso" options="-parameters" />
+    </option>
+  </component>
+</project>

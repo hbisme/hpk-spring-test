@@ -1,0 +1,13 @@
+sso:
+  loginUrl: http://master.login.hipac.cn/sso/login.do
+  logoutUrl: http://master.login.hipac.cn/sso/logout
+  errorUrl: http://master.login.hipac.cn/sso/error.do
+  runMode: test
+  tokenType: yduss_test_m_v2
+
+  endPoint: https://oss-cn-hangzhou-internal.aliyuncs.com
+  accessKeyId: LTAId6Wu757mMSUq
+  accessKeySecret: 5FpXUdU6rD7qC2bsw93pn6s2WP7rnC
+  env: test
+  bucket: yangtuo-test
+  downLoadUrl: https://oss-cn-hangzhou.aliyuncs.com

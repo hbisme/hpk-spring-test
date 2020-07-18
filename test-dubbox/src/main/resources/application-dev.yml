@@ -1,0 +1,14 @@
+dubbo:
+  appName: hirac
+  appOwner: data-service
+  register.address: zookeeper://test-zk.yangtuojia.com:2184?backup=test-zk.yangtuojia.com:2185,test-zk.yangtuojia.com:2186
+  register.metaAddress: zookeeper://test-zk.yangtuojia.com:2184?backup=test-zk.yangtuojia.com:2185,test-zk.yangtuojia.com:2186
+  cache.file: /tmp/hirac-dubbo-registry.cache
+  cache.metaFile: /tmp/hirac-dubbo-registry-meta.cache
+  port: 28899
+
+dubbo.gw.register.group: master
+
+ustone:
+  dubbo:
+    group: master

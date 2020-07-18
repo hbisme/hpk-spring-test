@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hb.dao.mappers.StreamJobMapper">
+    <resultMap id="BaseResultMap" type="com.hb.domain.streaming.entity.StreamingJobDO">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="job_desc" jdbcType="VARCHAR" property="jobDesc" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="owner_uid" jdbcType="VARCHAR" property="ownerUid" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+        <result column="creator" jdbcType="VARCHAR" property="creator" />
+        <result column="editor" jdbcType="VARCHAR" property="editor" />
+        <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    </resultMap>
+
+    <sql id="Base_column_list">
+            id, `name`, job_desc, `type`, owner_uid, create_time, edit_time, creator, editor,
+    is_deleted
+    </sql>
+
+    <select id="selectByJobParam" parameterType="com.hb.domain.streaming.query.StreamJobDalQuery" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_column_list"/>
+        from stream_job
+        where is_deleted=0
+        <if test="type != null">
+            and type = #{type}
+        </if>
+        <if test="name != null and name != ''">
+            and name= #{name, jdbcType=VARCHAR}
+        </if>
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_column_list"></include>
+        from stream_job
+        where id = #{id, jdbcType=BIGINT} and is_deleted = 0
+    </select>
+
+</mapper>

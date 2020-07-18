@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache" xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://code.alibabatech.com/schema/dubbo
+http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+<!--    <dubbo:reference interface="com.yt.ustone.api.auth.PermissionApi" id="permissionApi" group="${ustone.dubbo.group}" registry="register" />-->
+
+<!--    &lt;!&ndash;用户查询api &ndash;&gt;-->
+<!--    <dubbo:reference interface="com.yangt.ucenter.api.AdminUserApi" id="adminUserApi" group="${ucenter.dubbo.group}" registry="register" />-->
+
+    <!--用户查询api -->
+    <dubbo:reference interface="com.yt.ustone.api.user.UserQueryApi" id="ustoneUserQueryApi" group="${ustone.dubbo.group}" stub="true" registry="register" />
+
+<!--    &lt;!&ndash;洋驼网关&ndash;&gt;-->
+<!--    <dubbo:reference interface="com.ytgw.facade.service.TransReceiverInfoService" id="transReceiverInfoService"-->
+<!--                     group="${dubbo.gw.register.group}" registry="register"/>-->
+
+<!--    &lt;!&ndash;元数据&ndash;&gt;-->
+<!--    <dubbo:reference interface="com.yangt.octopus.api.MetaApi" id="metaApi" group="${octopus.dubbo.group}"-->
+<!--                     registry="metaRegister" />-->
+<!--    <dubbo:reference interface="com.yangt.octopus.api.MetaAzkabanApi" id="metaAzkabanApi" group="${octopus.dubbo.group}"-->
+<!--                     registry="metaRegister" />-->
+
+</beans>

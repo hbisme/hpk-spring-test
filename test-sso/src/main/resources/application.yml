@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+
+sso:
+#  runMode: production
+  loginChecktime: false
+  appCode: hirac
+  appType: 2
+  excludedPages: /info,/job/**,/api/**
