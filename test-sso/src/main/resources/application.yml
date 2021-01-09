@@ -3,8 +3,9 @@ spring:
     active: dev
 
 sso:
-#  runMode: production
+  runMode: production
   loginChecktime: false
   appCode: hirac
   appType: 2
-  excludedPages: /info,/job/**,/api/**
+#  excludedPages: /info,/job/**,/api/**
+  excludedPages: /duty/dutyMan,/duty/dutyManList,/info,/job/**,/api/**,/metrics,/metrics2,/metrics3

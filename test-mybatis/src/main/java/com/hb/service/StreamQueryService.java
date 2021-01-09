@@ -1,0 +1,32 @@
+package com.hb.service;
+
+import com.github.pagehelper.Page;
+import com.hb.domain.streaming.entity.StreamingJobDO;
+import com.hb.domain.streaming.query.StreamJobDalQuery;
+
+import java.util.List;
+
+public interface StreamQueryService {
+
+    /**
+     * 主键查询
+     * @param id
+     * @return
+     */
+    StreamingJobDO selectByPrimaryKey(Long id);
+
+    /**
+     * 多条件查询作业信息
+     * @param
+     * @return
+     */
+    List<StreamingJobDO> selectByJobParam(StreamJobDalQuery streamJobDalQuery);
+
+
+    /**
+     * selectByJobParam 的分页方法
+     * @param streamJobDalQuery
+     * @return
+     */
+    Page<StreamingJobDO> pageSelectByJobParam(StreamJobDalQuery streamJobDalQuery);
+}

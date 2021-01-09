@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd
+       http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+
+
+    <bean id="MqConsumer" class="com.hb.comsumer.MqConsumer"/>
+
+    <bean id="mqClient" class="com.yt.asd.common.mq.MqAutoConfigure">
+        <!--环境test，pre， prod，不能填错 -->
+        <property name="env" value="test"/>
+        <!-- 是否线上，会读取hmq配置，容灾必填,一般为true: 会从zk读取消息的通道(rocketmq,ons) -->
+        <property name="online" value="true"></property>
+        <!-- 消费监听 -->
+        <property name="messageListener" ref="MqConsumer"/>
+        <!-- 是否生成消费者,是否需要消费消息,如果为false,就算设置了consumer也不会收到消息. -->
+        <property name="acceptEnable" value="true"></property>
+        <!-- 是否生成producer: 意思是是否需要发消息,这个为true,可以在项目里面发消息 -->
+        <property name="sendEnable" value="true"></property>
+        <!-- 类型,mq的类型RocketMQ,Ons,All，没有online时必填,注意大小写,如果写错,启动失败 -->
+        <property name="mqType" value="All"></property>
+        <!-- gid -->
+        <property name="groupId" value="hb" ></property>
+        <!-- 默认topic,发送消息,接收消息都是这个topic,发送消息可以指定其他topic进行发送(如果需要的话) -->
+        <property name="defaultTopic" value="hirac-task-life-cycle-master" />
+        <!-- CLUSTERING ,BROADCASTING -->
+        <property name="messageModel" value="CLUSTERING"/>
+        <!-- tag 列表 -->
+        <property name="tagList">
+            <list>
+                <value>*</value>
+            </list>
+        </property>
+    </bean>
+<!--    <bean id="tocBroadMessageListener" class="com.yangt.test.web.listener.TocBroadMessageListener">-->
+<!--    </bean>-->
+
+
+</beans>

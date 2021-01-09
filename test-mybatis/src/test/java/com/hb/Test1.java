@@ -1,5 +1,6 @@
 package com.hb;
 
+import com.github.pagehelper.Page;
 import com.hb.dao.mappers.StreamJobMapper;
 import com.hb.domain.streaming.entity.StreamingJobDO;
 import com.hb.domain.streaming.query.StreamJobDalQuery;
@@ -10,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.github.pagehelper.PageHelper;
+import com.hb.service.StreamQueryService;
+import com.yt.asd.kit.domain.RpcResult;
+
 import java.util.List;
 
 
@@ -18,6 +23,9 @@ import java.util.List;
 public class Test1 {
     @Autowired
     StreamJobMapper streamJobMapper;
+
+    @Autowired
+    StreamQueryService streamQueryService;
 
     @Test
     public void TestMappersSelect() {
@@ -29,12 +37,55 @@ public class Test1 {
     @Test
     public void TestSelectByJobParam() {
         System.out.println("测试 类型和名称的Mappers 对应的sql");
-        StreamJobDalQuery streamJobDalQuery =new StreamJobDalQuery();
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
         streamJobDalQuery.setType(1);
         List<StreamingJobDO> res = streamJobMapper.selectByJobParam(streamJobDalQuery);
         System.out.println("length: " + res.size());
         System.out.println(res);
-
     }
+
+    /**
+     * 分页插件使用, 使用 pagehelper-spring-boot-starter, 使用默认配置
+     */
+    @Test
+    public void testPageHelper() {
+        PageHelper.startPage(1, 2, true);
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        Page<StreamingJobDO> page = streamJobMapper.pageSelectByJobParam(streamJobDalQuery);
+        List<StreamingJobDO> res = page.getResult();
+        System.out.println("res: " + res);
+    }
+
+    /**
+     * 分页插件使用, 使用 pagehelper-spring-boot-starter, 使用默认配置
+     */
+    @Test
+    public void testPageHelper2() {
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        Page<StreamingJobDO> page = streamQueryService.pageSelectByJobParam(streamJobDalQuery);
+        List<StreamingJobDO> res = page.getResult();
+        System.out.println(res);
+    }
+
+    /**
+     * 分页对象后,赋值给包装对象
+     */
+    @Test
+    public void testPageHelper3() {
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        Page<StreamingJobDO> page = streamQueryService.pageSelectByJobParam(streamJobDalQuery);
+        List<StreamingJobDO> list = page.getResult();
+        System.out.println(list);
+
+        RpcResult<List<StreamingJobDO>> result = new RpcResult<>();
+        result.setData(list);
+        result.setTotalCount(Long.valueOf(list.size()));
+        System.out.println(result.getData());
+        // System.out.println(result);
+    }
+
 
 }

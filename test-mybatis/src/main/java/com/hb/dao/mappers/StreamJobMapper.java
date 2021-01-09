@@ -1,5 +1,6 @@
 package com.hb.dao.mappers;
 
+import com.github.pagehelper.Page;
 import com.hb.domain.streaming.entity.StreamingJobDO;
 import com.hb.domain.streaming.query.StreamJobDalQuery;
 
@@ -23,6 +24,14 @@ public interface StreamJobMapper {
      * @return
      */
     List<StreamingJobDO> selectByJobParam(StreamJobDalQuery streamJobDalQuery);
+
+
+    /**
+     * selectByJobParam 的分页方法
+     * @param streamJobDalQuery
+     * @return
+     */
+    Page<StreamingJobDO> pageSelectByJobParam(StreamJobDalQuery streamJobDalQuery);
 
 
 }

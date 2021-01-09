@@ -13,6 +13,8 @@
         <module>test-dubbox</module>
         <module>test-sso</module>
         <module>test-other</module>
+        <module>test-mq</module>
+        <module>test-unified-exception</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -31,6 +33,15 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
         </dependency>
+
+        <!--二方库-->
+        <dependency>
+            <groupId>com.yangt.asd</groupId>
+            <artifactId>ytasd-kit</artifactId>
+            <version>1.0.17</version>
+        </dependency>
+
     </dependencies>
+
 
 </project>

@@ -39,4 +39,17 @@
         where id = #{id, jdbcType=BIGINT} and is_deleted = 0
     </select>
 
+    <select id="pageSelectByJobParam" parameterType="com.hb.domain.streaming.query.StreamJobDalQuery" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_column_list"/>
+        from stream_job
+        where is_deleted=0
+        <if test="type != null">
+            and type = #{type}
+        </if>
+        <if test="name != null and name != ''">
+            and name= #{name, jdbcType=VARCHAR}
+        </if>
+    </select>
+
 </mapper>

@@ -9,6 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+/**
+ * 测试自定义过滤器
+ */
 public class FilterDemo3 implements Filter {
 
     @Override
