@@ -6,7 +6,7 @@ import com.hipac.disconf.client.common.annotations.DisconfFileItem;
 import org.springframework.stereotype.Service;
 
 @Service
-@DisconfFile(filename = "default.datasource.properties")
+@DisconfFile(filename = "default.datasource.properties")  // disconf key的名称
 public class DefaultDataSourceProperties {
     private String name;
     private String type;
