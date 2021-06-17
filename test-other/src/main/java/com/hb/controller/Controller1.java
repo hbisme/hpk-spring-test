@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.stream.Stream;
+
 @RestController
 public class Controller1 {
 
@@ -18,8 +20,10 @@ public class Controller1 {
     TestConfig testConfig;
 
 
+
     @GetMapping("hello1")
-    public String hello1() {
+    public String hello1() throws InterruptedException {
+        Thread.sleep(10000);
         return "hello11";
     }
 

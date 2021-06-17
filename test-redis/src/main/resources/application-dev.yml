@@ -1,0 +1,6 @@
+spring:
+  redis:
+    host: r-bp12fe59fd823b44.redis.rds.aliyuncs.com
+    port: 6379
+    password: Yangtuojia001
+    pool.max-active: 200

@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Random;
 import java.util.UUID;
+import java.util.function.Supplier;
 
+import io.vavr.CheckedFunction0;
 import io.vavr.Function1;
 import io.vavr.Function2;
 import io.vavr.Function3;
@@ -30,7 +33,10 @@ import static io.vavr.API.Case;
 import static io.vavr.API.Match;
 
 
-public class Test1 {
+/**
+ * 参考  https://blog.csdn.net/ssehs/article/details/105831916
+ */
+public class VavrTest1 {
 
     @Test
     public void test1() {
@@ -74,10 +80,10 @@ public class Test1 {
 
 
     /**
-     * 模式匹配
+     * 模式匹配1
      */
     @Test
-    public void whenMatchworks_thenCorrect() {
+    public void matchTest1() {
         int input = 2;
         String output = Match(input).of(
                 Case($(1), "one"),
@@ -88,6 +94,10 @@ public class Test1 {
         Assert.assertEquals("two", output);
     }
 
+
+    /**
+     * 测试组合
+     */
     @Test
     public void testCompose() {
         //使用andThen
@@ -95,6 +105,29 @@ public class Test1 {
         Function1<Integer, Integer> multiplyByTwo = a -> a * 2;
         Function1<Integer, Integer> add1AndMultiplyBy2 = plusOne.andThen(multiplyByTwo);
         Assert.assertEquals(6, add1AndMultiplyBy2.apply(2).intValue());
+    }
+
+
+    /**
+     * 不建议用Either了, 用Try替代
+     * @throws Throwable
+     */
+    @Test
+    public void testEither() throws Throwable {
+        CheckedFunction0<Integer> func = () -> 1 / 0;
+        System.out.println(func.apply().intValue());
+
+        Supplier<Either<Throwable, String>> compute2 = () -> {
+            return new Random().nextBoolean()
+                    ? Either.left(new RuntimeException("Boom!"))
+                    : Either.right("Hello");
+        };
+
+        Either<String, String> either = compute2.get()
+                .map(str -> str + "world")
+                .mapLeft(throwable -> throwable.getMessage());
+
+        System.out.println(either.isRight()? either.get():either.getLeft());
     }
 
 
@@ -108,7 +141,8 @@ public class Test1 {
 
 
     /**
-     * 测试Option, 可以去掉很多if/else == null判断 和         if (handlers != null && handlers.size() > 0) { 这样的判断
+     * 测试Option,
+     * 可以去掉很多if/else == null判断 和  if (handlers != null && handlers.size() > 0) { 这样的判断
      */
     @Test
     public void testOption() {
@@ -122,6 +156,9 @@ public class Test1 {
     }
 
 
+    /**
+     * 测试提升
+     */
     @Test
     public void testLifting() {
         Function2<Integer, Integer, Integer> divide = (a, b) -> a / b;
@@ -201,8 +238,6 @@ public class Test1 {
         List<Integer> list = List.range(1, 10);
         System.out.println(list);
     }
-
-
 
 
     class User {
