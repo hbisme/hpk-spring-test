@@ -1,5 +1,7 @@
 package com.hb.service;
 
+import java.util.List;
+
 public interface Service1 {
     Boolean WriteToRedis();
 
@@ -7,6 +9,9 @@ public interface Service1 {
 
 
     Boolean addToList() throws InterruptedException;
+
+
+    List<String> getFromRedisList();
 
 
 }

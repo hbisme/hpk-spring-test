@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class Controller1 {
 
@@ -15,7 +17,7 @@ public class Controller1 {
 
     @GetMapping("test1")
     public String echo() {
-        return "ok11";
+        return "ok1222";
     }
 
     @GetMapping("test2")
@@ -36,5 +38,9 @@ public class Controller1 {
         return res;
     }
 
-
+    @GetMapping("test5")
+    public List<String> getFormRedisList() {
+        List<String> res = service1.getFromRedisList();
+        return res;
+    }
 }
