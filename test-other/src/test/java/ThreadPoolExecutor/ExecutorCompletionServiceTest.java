@@ -2,6 +2,7 @@ package ThreadPoolExecutor;
 
 import org.junit.Test;
 
+import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
@@ -26,7 +27,8 @@ public class ExecutorCompletionServiceTest {
             service.submit(new Callable<String>() {
                 @Override
                 public String call() throws Exception {
-                    Thread.sleep(2000);
+                    int sleeptime = new Random(1).nextInt(3000);
+                    Thread.sleep(sleeptime);
                     return "HelloWorld-" + seqNo + "-" + Thread.currentThread().getName();
                 }
             });
