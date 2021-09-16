@@ -18,6 +18,10 @@
         <module>test-websocket</module>
         <module>test-redis</module>
         <module>test-hdfs</module>
+        <module>test-hadoop</module>
+        <module>test-secondParty</module>
+        <module>test-aliyun</module>
+
     </modules>
 
     <packaging>pom</packaging>
