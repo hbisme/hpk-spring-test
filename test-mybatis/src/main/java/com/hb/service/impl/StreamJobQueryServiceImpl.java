@@ -3,9 +3,9 @@ package com.hb.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.hb.dao.mappers.StreamJobMapper;
-import com.hb.domain.streaming.entity.StreamingJobDO;
-import com.hb.domain.streaming.query.StreamJobDalQuery;
-import com.hb.service.StreamQueryService;
+import com.hb.dao.entity.StreamingJobDO;
+import com.hb.dao.query.StreamJobDalQuery;
+import com.hb.service.StreamJobQueryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StreamQueryServiceImpl implements StreamQueryService {
+public class StreamJobQueryServiceImpl implements StreamJobQueryService {
 
     @Autowired
     StreamJobMapper streamJobMapper;

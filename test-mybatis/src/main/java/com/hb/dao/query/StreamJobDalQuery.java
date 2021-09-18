@@ -1,4 +1,4 @@
-package com.hb.domain.streaming.query;
+package com.hb.dao.query;
 
 import java.io.Serializable;
 

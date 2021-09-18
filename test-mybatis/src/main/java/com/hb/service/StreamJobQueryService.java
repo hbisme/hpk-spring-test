@@ -1,12 +1,12 @@
 package com.hb.service;
 
 import com.github.pagehelper.Page;
-import com.hb.domain.streaming.entity.StreamingJobDO;
-import com.hb.domain.streaming.query.StreamJobDalQuery;
+import com.hb.dao.entity.StreamingJobDO;
+import com.hb.dao.query.StreamJobDalQuery;
 
 import java.util.List;
 
-public interface StreamQueryService {
+public interface StreamJobQueryService {
 
     /**
      * 主键查询

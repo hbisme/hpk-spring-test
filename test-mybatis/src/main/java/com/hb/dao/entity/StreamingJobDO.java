@@ -1,4 +1,4 @@
-package com.hb.domain.streaming.entity;
+package com.hb.dao.entity;
 
 import java.io.Serializable;
 import java.util.Date;

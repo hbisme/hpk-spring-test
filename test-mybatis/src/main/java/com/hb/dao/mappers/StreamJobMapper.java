@@ -1,8 +1,8 @@
 package com.hb.dao.mappers;
 
 import com.github.pagehelper.Page;
-import com.hb.domain.streaming.entity.StreamingJobDO;
-import com.hb.domain.streaming.query.StreamJobDalQuery;
+import com.hb.dao.entity.StreamingJobDO;
+import com.hb.dao.query.StreamJobDalQuery;
 
 import org.apache.ibatis.annotations.Mapper;
 

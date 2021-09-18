@@ -2,8 +2,8 @@ package com.hb;
 
 import com.github.pagehelper.Page;
 import com.hb.dao.mappers.StreamJobMapper;
-import com.hb.domain.streaming.entity.StreamingJobDO;
-import com.hb.domain.streaming.query.StreamJobDalQuery;
+import com.hb.dao.entity.StreamingJobDO;
+import com.hb.dao.query.StreamJobDalQuery;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.github.pagehelper.PageHelper;
-import com.hb.service.StreamQueryService;
+import com.hb.service.StreamJobQueryService;
 import com.yt.asd.kit.domain.RpcResult;
 
 import java.util.List;
@@ -20,12 +20,12 @@ import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class Test1 {
+public class OriginalMybatisTest {
     @Autowired
     StreamJobMapper streamJobMapper;
 
     @Autowired
-    StreamQueryService streamQueryService;
+    StreamJobQueryService streamJobQueryService;
 
     @Test
     public void TestMappersSelect() {
@@ -46,10 +46,11 @@ public class Test1 {
 
     /**
      * 分页插件使用, 使用 pagehelper-spring-boot-starter, 使用默认配置
+     * 起始页从1开始计数.
      */
     @Test
     public void testPageHelper() {
-        PageHelper.startPage(1, 2, true);
+        PageHelper.startPage(2, 2, true);
         StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
         streamJobDalQuery.setType(1);
         Page<StreamingJobDO> page = streamJobMapper.pageSelectByJobParam(streamJobDalQuery);
@@ -64,7 +65,7 @@ public class Test1 {
     public void testPageHelper2() {
         StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
         streamJobDalQuery.setType(1);
-        Page<StreamingJobDO> page = streamQueryService.pageSelectByJobParam(streamJobDalQuery);
+        Page<StreamingJobDO> page = streamJobQueryService.pageSelectByJobParam(streamJobDalQuery);
         List<StreamingJobDO> res = page.getResult();
         System.out.println(res);
     }
@@ -76,7 +77,7 @@ public class Test1 {
     public void testPageHelper3() {
         StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
         streamJobDalQuery.setType(1);
-        Page<StreamingJobDO> page = streamQueryService.pageSelectByJobParam(streamJobDalQuery);
+        Page<StreamingJobDO> page = streamJobQueryService.pageSelectByJobParam(streamJobDalQuery);
         List<StreamingJobDO> list = page.getResult();
         System.out.println(list);
 
