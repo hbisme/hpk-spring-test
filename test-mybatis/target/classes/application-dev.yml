@@ -9,3 +9,9 @@ spring:
     password: yangtuojia001
     driver-class-name: com.mysql.jdbc.Driver
 
+# 控制台打印执行的sql
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
