@@ -7,7 +7,7 @@ import com.hipac.disconf.client.common.annotations.DisconfFileItem;
 import org.springframework.stereotype.Service;
 
 @Service
-@DisconfFile(filename = "myTest.properties")   // disconf key的名称
+@DisconfFile(filename = "myTest.properties")   // disconf key的名称,在disconf上创建时选"新建配置文件",要以properties结尾
 public class MyTestProperties {
     private String name;
     private Integer age;

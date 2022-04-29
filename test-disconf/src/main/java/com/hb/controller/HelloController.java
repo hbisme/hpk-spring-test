@@ -1,6 +1,6 @@
 package com.hb.controller;
 
-import com.hb.config.disconf.DefaultDataSourceProperties;
+import com.hb.config.disconf.HiracDataSourceProperties;
 import com.hb.config.disconf.MyTestProperties;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 public class HelloController {
 
     @Autowired
-    DefaultDataSourceProperties defaultDataSourceProperties;
+    HiracDataSourceProperties hiracDataSourceProperties;
 
     @Autowired
     MyTestProperties myTestProperties;
@@ -28,9 +28,9 @@ public class HelloController {
 
     @GetMapping("/test2")
     public String test2() {
-        System.out.println(defaultDataSourceProperties.getName());
-        System.out.println(defaultDataSourceProperties.getDriverClassName());
-        return defaultDataSourceProperties.toString();
+        System.out.println(hiracDataSourceProperties.getName());
+        System.out.println(hiracDataSourceProperties.getDriverClassName());
+        return hiracDataSourceProperties.toString();
     }
 
     @GetMapping("/test3")

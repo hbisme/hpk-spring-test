@@ -6,8 +6,8 @@ import com.hipac.disconf.client.common.annotations.DisconfFileItem;
 import org.springframework.stereotype.Service;
 
 @Service
-@DisconfFile(filename = "default.datasource.properties")  // disconf key的名称
-public class DefaultDataSourceProperties {
+@DisconfFile(filename = "hirac.datasource.properties")  // disconf key的名称,在disconf上创建时选"新建配置文件",要以properties结尾
+public class HiracDataSourceProperties {
     private String name;
     private String type;
     private String driverClassName;

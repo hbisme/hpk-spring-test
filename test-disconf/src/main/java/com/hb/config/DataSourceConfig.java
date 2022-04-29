@@ -2,7 +2,7 @@ package com.hb.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
-import com.hb.config.disconf.DefaultDataSourceProperties;
+import com.hb.config.disconf.HiracDataSourceProperties;
 import com.yangt.datasource.YtDataSource;
 import com.yt.asd.common.mapper.BeanMapper;
 
@@ -27,9 +27,9 @@ public class DataSourceConfig {
 
     @Primary
     @Bean(name = "defaultDataSource")
-    public DataSource defaultDataSource(DefaultDataSourceProperties defaultDataSourceProperties) throws SQLException {
+    public DataSource defaultDataSource(HiracDataSourceProperties hiracDataSourceProperties) throws SQLException {
         YtDataSource ytDataSource = new YtDataSource();
-        BeanMapper.copy(defaultDataSourceProperties, ytDataSource);
+        BeanMapper.copy(hiracDataSourceProperties, ytDataSource);
         ytDataSource.setDataConifg(hiracConfig);
         return ytDataSource;
     }
