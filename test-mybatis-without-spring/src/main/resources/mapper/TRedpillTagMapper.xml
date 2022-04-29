@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mybatis.dao.mappers.TRedpillTagMapper">
+    <select id="getById" resultType="com.test.mybatis.dao.entity.TRedpillTag">
+        select
+               id,
+               name,
+               count,
+               type,
+               is_deleted
+        from t_redpill_tag
+        where id = #{requestparams}
+    </select>
+
+
+
+    <select id="getAll" resultType="com.test.mybatis.dao.entity.TRedpillTag">
+        SELECT * FROM t_redpill_tag
+    </select>
+
+</mapper>

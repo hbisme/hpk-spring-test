@@ -1,0 +1,1 @@
+使用MyBatis集成阿里巴巴druid连接池（不使用spring）
