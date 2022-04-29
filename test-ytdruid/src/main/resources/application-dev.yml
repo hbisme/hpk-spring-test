@@ -1,0 +1,13 @@
+spring:
+  profiles: dev
+  datasource:
+    hirac:
+#     hipac的disconf-db的配置,在 dbmanager这个app里的配置, dev-hiracConfig 对应: dev环境,hiracConfig的key
+      dataSourceConfig: dev-hiracConfig
+    edp:
+      dataSourceConfig: dev-bigdata_yt_edp_dev_slave
+
+
+
+
+
