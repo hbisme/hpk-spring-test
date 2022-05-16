@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hb.dao.mapper.hirac.HiracJobMapper">
+    <resultMap id="BaseResultMap" type="com.hb.dao.entity.hirac.HiracJobDO">
+        <!--id 映射主键字段, result 映射普通字段        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="group_id" jdbcType="INTEGER" property="groupId"/>
+
+    </resultMap>
+
+    <!--    <select id="selectByJobId" resultType="com.hb.dao.entity.StreamTaskDO">-->
+    <!--    不能用上面的形式结果会映射不到,一定要用下面的形式-->
+    <select id="selectById" resultMap="BaseResultMap">
+        select id,
+               name,
+               group_id
+        from hera_job
+        where id = #{jobId}
+    </select>
+
+
+</mapper>
