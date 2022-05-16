@@ -1,19 +1,13 @@
 package com.hb.comsumer;
 
-
-
-
-
-
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
+import org.apache.rocketmq.common.message.MessageExt;
 
 import com.aliyun.openservices.ons.api.Action;
 import com.aliyun.openservices.ons.api.ConsumeContext;
 import com.aliyun.openservices.ons.api.Message;
 import com.aliyun.openservices.ons.api.MessageListener;
-
-import org.apache.rocketmq.common.message.MessageExt;
 
 public class MqConsumer implements MessageListener {
 
@@ -26,6 +20,5 @@ public class MqConsumer implements MessageListener {
     }
 
     public static void main(String[] args) {
-
     }
 }

@@ -227,3 +227,7 @@ Temporary Items
 .apdisk
 
 /alidata/disconf/download/
+/test-mybatis/target/
+
+#*/target/
+/test-dubbox/target/

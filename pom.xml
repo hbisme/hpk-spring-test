@@ -21,6 +21,10 @@
         <module>test-hadoop</module>
         <module>test-secondParty</module>
         <module>test-aliyun</module>
+        <module>test-pattern</module>
+        <module>test-mybatis-without-spring</module>
+        <module>test-other2</module>
+        <module>test-ytdruid</module>
 
     </modules>
 

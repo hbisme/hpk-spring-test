@@ -1,0 +1,8 @@
+hosts: [ gds-bp1y2x29nt99w507150010.graphdb.rds.aliyuncs.com ]
+port: 8182
+username: gpadmin
+password: '#Y&plm55BTbg'
+serializer: {
+  className: org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1,
+  config: { serializeResultToString: false }
+}
