@@ -4,5 +4,10 @@ import com.yt.ustone.domain.ResultData;
 import com.yt.ustone.domain.to.BasicUserCacheTO;
 
 public interface UserService {
+    String test0();
+
     ResultData<BasicUserCacheTO> test1();
+
+
+    String testStatic0();
 }

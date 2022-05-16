@@ -13,7 +13,7 @@ http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.or
 <!--    <dubbo:reference interface="com.yangt.ucenter.api.AdminUserApi" id="adminUserApi" group="${ucenter.dubbo.group}" registry="register" />-->
 
     <!--用户查询api -->
-    <dubbo:reference interface="com.yt.ustone.api.user.UserQueryApi" id="ustoneUserQueryApi" group="${ustone.dubbo.group}" stub="true" registry="register" />
+    <dubbo:reference interface="com.yt.ustone.api.userDto.UserQueryApi" id="ustoneUserQueryApi" group="${ustone.dubbo.group}" stub="true" registry="register" />
 
 <!--    &lt;!&ndash;洋驼网关&ndash;&gt;-->
 <!--    <dubbo:reference interface="com.ytgw.facade.service.TransReceiverInfoService" id="transReceiverInfoService"-->

@@ -14,6 +14,11 @@ public class Controller1 {
     @Autowired
     UserService userService;
 
+    @GetMapping("/hello0")
+    public String hello0() {
+        return userService.test0();
+    }
+
     @GetMapping("/hello1")
     public String hello1() {
         return "hello1";
@@ -25,6 +30,10 @@ public class Controller1 {
         return res;
     }
 
+    @GetMapping("/hello3")
+    public String hello3() {
+        return userService.testStatic0();
+    }
 
 
 }

@@ -1,7 +1,9 @@
 package com.hb.service.iml;
 
 import com.hb.service.UserService;
+import com.hb.utils.CommonUtils;
 import com.yt.ustone.api.user.UserQueryApi;
+// import com.yt.ustone.api.user.UserIdNumApi;
 import com.yt.ustone.domain.ResultData;
 import com.yt.ustone.domain.to.BasicUserCacheTO;
 
@@ -13,10 +15,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserQueryApi userQueryApi;
 
+
+    @Override
+    public String test0() {
+        return "test0";
+    }
+
     @Override
     public ResultData<BasicUserCacheTO> test1() {
         ResultData<BasicUserCacheTO> res = userQueryApi.getBasicUserById("6121");
         System.out.println(res);
         return res;
+    }
+
+    @Override
+    public String testStatic0() {
+        return CommonUtils.getTest0();
     }
 }
