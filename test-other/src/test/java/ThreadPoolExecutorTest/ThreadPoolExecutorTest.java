@@ -88,7 +88,7 @@ public class ThreadPoolExecutorTest {
 
             System.out.println(this.toString() + " is running!, count: " + count);
             try {
-                java.lang.Thread.sleep(5000);
+                java.lang.Thread.sleep(10000);
                 delCount();
                 System.out.println(this.toString() + "is ending!, count: " + count);
             } catch (InterruptedException e) {

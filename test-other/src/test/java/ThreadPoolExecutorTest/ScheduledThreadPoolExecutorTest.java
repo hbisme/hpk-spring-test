@@ -82,9 +82,21 @@ public class ScheduledThreadPoolExecutorTest {
 
         Thread.sleep(120000);
         System.out.println("end main thread");
-
-
     }
+
+    /**
+     * 测试停止定时调度器
+     * @throws InterruptedException
+     */
+    @Test
+    public void testStopSchedule() throws InterruptedException {
+        System.out.println("start main thread");
+        executor.scheduleAtFixedRate(task, 0, 10, TimeUnit.SECONDS);
+        Thread.sleep(3000);
+        executor.shutdownNow();
+        System.out.println("end main thread");
+    }
+
 
 
     /**
