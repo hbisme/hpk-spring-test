@@ -22,12 +22,12 @@ public class FutureController {
 
     /**
      * 如果返回的是Future<String>, web返回
-     * <p>
+     *
      * {
      * "cancelled": false,
      * "done": true
      * }
-     * <p>
+     *
      * 而不是想要的结果
      *
      * @return
@@ -50,17 +50,15 @@ public class FutureController {
         (new MasterHandler()).addListener(responseListener);
 
         Future<String> f = executor.submit(() -> {
-            latch.await(1, TimeUnit.HOURS);
+            latch.await(1, TimeUnit.MINUTES);
             if (!responseListener.getReceiveResult()) {
-                System.out.println("任务({})信号丢失，3小时未收到work返回：{}");
+                System.out.println("任务({})信号丢失，1分钟未收到work返回：{}");
             }
             return responseListener.getResponse();
         });
-
 
         System.out.println("发送消息到外部");
 
         return f;
     }
-
 }

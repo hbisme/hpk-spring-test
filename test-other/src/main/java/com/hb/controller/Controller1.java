@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.stream.Stream;
-
 @RestController
 public class Controller1 {
 
@@ -21,26 +19,25 @@ public class Controller1 {
 
 
 
-    @GetMapping("hello1")
+    @GetMapping("/hello1")
     public String hello1() throws InterruptedException {
         Thread.sleep(10000);
         return "hello11";
     }
 
-    @GetMapping("hello2")
+    @GetMapping("/hello2")
     public String hello2() {
-        return testConfig.echo1();
+        return testConfig.getAutowireBeanFactory();
     }
 
-    @GetMapping("hello3")
+    @GetMapping("/hello3")
     public String hello3() {
-        MyService1 bean = MyUtils1.echo1();
+        MyService1 bean = MyUtils1.getBean();
         System.out.println(bean.echo());
         return "hello3.ok";
-
     }
 
-    @GetMapping("hello4")
+    @GetMapping("/hello4")
     public String hello4(@RequestParam(required = false) Boolean f1, @RequestParam(required = false) Boolean f2) {
 
         if (f1 == null) {
@@ -50,25 +47,24 @@ public class Controller1 {
         if (f2 == null) {
             System.out.println("f2 is null ");
         }
-        MyService1 bean = MyUtils1.echo1();
+        MyService1 bean = MyUtils1.getBean();
         System.out.println(bean.echo());
         return "hello3.ok";
-
     }
 
-    @GetMapping("hello5")
+    @GetMapping("/hello5")
     public String hello5(@RequestParam String name) {
         System.out.println(name);
         return "hello5.ok";
     }
 
-    @PostMapping("hello6")
+    @PostMapping("/hello6")
     public String hello6(@RequestParam String name) {
         System.out.println("post ->" + name);
         return "hello6.ok";
     }
 
-    @PutMapping("hello7")
+    @PutMapping("/hello7")
     public String hello7(@RequestParam String name) {
         System.out.println("put ->" + name);
         return "hello7.ok";

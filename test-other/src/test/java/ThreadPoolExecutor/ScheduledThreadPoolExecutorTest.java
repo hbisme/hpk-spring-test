@@ -76,17 +76,12 @@ public class ScheduledThreadPoolExecutorTest {
     public void test() throws InterruptedException {
         System.out.println("start main thread");
         executor.schedule(task, 30, TimeUnit.SECONDS);
-
         Thread.sleep(120000);
         System.out.println("end main thread");
-
-
     }
 
 
     private int getPeriod(long start, long end) {
         return (int) (end - start) / 1000;
     }
-
-
 }

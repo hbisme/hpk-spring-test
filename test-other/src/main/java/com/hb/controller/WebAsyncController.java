@@ -63,7 +63,7 @@ public class WebAsyncController {
         String[] ids = idStr.split(",");
 
         Arrays.stream(ids).parallel().forEach(id -> {
-            System.out.println("异步工作线程: " + Thread.currentThread().getName());
+            System.out.println("工作处理线程: " + Thread.currentThread().getName());
             try {
                 Thread.sleep(5 * 1000L);
             } catch (InterruptedException e) {
@@ -120,13 +120,14 @@ public class WebAsyncController {
             return "TIME_MESSAGE";
         });
 
-        // 任务执行完成时调用该方法.
-        asyncTask.onCompletion(() -> System.out.println("异步任务执行完成"));
 
         asyncTask.onTimeout(() -> {
             System.out.println("任务执行超时");
             return TASK_TIMEOUT;
         });
+
+        // 任务执行完成时调用该方法.
+        asyncTask.onCompletion(() -> System.out.println("异步任务执行完成"));
 
         System.out.println("继续处理其他事情");
         return asyncTask;

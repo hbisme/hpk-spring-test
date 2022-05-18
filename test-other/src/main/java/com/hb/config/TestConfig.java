@@ -10,7 +10,7 @@ public class TestConfig {
     @Autowired
     private AutowireCapableBeanFactory beanFactory;
 
-    public String echo1() {
+    public String getAutowireBeanFactory() {
         return beanFactory.toString();
     }
 
