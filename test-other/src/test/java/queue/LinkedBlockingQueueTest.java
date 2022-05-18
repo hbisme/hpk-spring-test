@@ -2,6 +2,7 @@ package queue;
 
 import org.junit.Test;
 
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Collectors;
 
@@ -9,7 +10,8 @@ public class LinkedBlockingQueueTest {
 
     @Test
     public void test1() throws InterruptedException {
-        LinkedBlockingQueue<String> list = new LinkedBlockingQueue(10);
+        BlockingQueue<String> list = new LinkedBlockingQueue(10);
+
         list.put("a");
         list.put("b");
         list.put("c");
@@ -23,13 +25,12 @@ public class LinkedBlockingQueueTest {
 
         list.clear();
         System.out.println(list.size());
-
     }
 
 
     @Test
     public void test2() throws InterruptedException {
-        LinkedBlockingQueue<String> list = new LinkedBlockingQueue(10);
+       BlockingQueue<String> list = new LinkedBlockingQueue(10);
         list.put("a");
         list.put("b");
         list.put("c");
@@ -41,9 +42,5 @@ public class LinkedBlockingQueueTest {
         list.clear();
         System.out.println(arr.length);
         System.out.println(list);
-
-
     }
-
-
 }

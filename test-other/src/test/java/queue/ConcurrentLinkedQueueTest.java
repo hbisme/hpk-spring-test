@@ -5,6 +5,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * ConcurrentLinkedQueue 是一个基于链接节点的无界线程安全队列.
+ * 当多个线程共享一个访问一个公共collection时,其是一个恰当的选择
+ */
 public class ConcurrentLinkedQueueTest {
     private static ConcurrentLinkedQueue<Integer> queue = new ConcurrentLinkedQueue<Integer>();
     private static int count = 2; // 线程个数
@@ -36,8 +40,6 @@ public class ConcurrentLinkedQueueTest {
     /**
      * 消费
      *
-     * @author 林计钦
-     * @version 1.0 2013-7-25 下午05:32:56
      */
     static class Poll implements Runnable {
         public void run() {

@@ -23,10 +23,6 @@ public class JavaRuntimeTest {
         System.out.println("Java虚拟机最大内存字节: " + runtime.maxMemory());
         System.out.println("Java虚拟机已使用内存字节: " + (runtime.totalMemory() - runtime.freeMemory()));
 
-
-
-
-
     }
 
 

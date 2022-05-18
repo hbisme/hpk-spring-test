@@ -54,7 +54,7 @@ public class ProtobufTest {
 
 
     @Test
-    public void testJobExecuteKind() {
+    public void testEnum() {
         JobExecuteKind.ExecuteKind[] values = JobExecuteKind.ExecuteKind.values();
         for (JobExecuteKind.ExecuteKind executedKind : values) {
             System.out.println(executedKind);
@@ -69,7 +69,6 @@ public class ProtobufTest {
 
         RpcExecuteMessage.ExecuteMessage executeMessage = build.build();
         System.out.println(executeMessage);
-
     }
 
     @Test
@@ -83,8 +82,7 @@ public class ProtobufTest {
 
 
     @Test
-    public void testHearBeatMessage() {
-
+    public void testListField() {
         RpcHeartBeatMessage.HeartBeatMessage.Builder build = RpcHeartBeatMessage.HeartBeatMessage.newBuilder();
 
         ArrayList<String> debugRunnings = new ArrayList<>();
@@ -96,8 +94,8 @@ public class ProtobufTest {
         manualRunnings.add("manualJob2");
 
         ArrayList<String> runnings = new ArrayList<>();
-        runnings.add("job1");
-        runnings.add("job2");
+        runnings.add("running-job1");
+        runnings.add("running-job2");
 
 
         build.setHost("host1")
@@ -159,8 +157,7 @@ public class ProtobufTest {
     @Test
     public void testSocketMessage() {
         RpcSocketMessage.SocketMessage.Builder build = RpcSocketMessage.SocketMessage.newBuilder();
-        build
-                .setKind(RpcSocketMessage.SocketMessage.Kind.REQUEST)
+        build.setKind(RpcSocketMessage.SocketMessage.Kind.REQUEST)
                 .setBody(ByteString.copyFrom("http body".getBytes()));
 
         RpcSocketMessage.SocketMessage socketMessage = build.build();

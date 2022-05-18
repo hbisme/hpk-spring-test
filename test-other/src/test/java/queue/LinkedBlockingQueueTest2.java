@@ -11,7 +11,7 @@ public class LinkedBlockingQueueTest2 {
      */
     public class Basket {
         // 篮子，能够容纳3个苹果
-        BlockingQueue<String> basket = new LinkedBlockingQueue<String>(3);
+        BlockingQueue<String> basket = new LinkedBlockingQueue(3);
 
         // 生产苹果，放入篮子
         public void produce() throws InterruptedException {

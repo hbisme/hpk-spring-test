@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.Random;
 import java.util.concurrent.SynchronousQueue;
 
+import lombok.SneakyThrows;
+
 /**
  * 同步队列测试
  * 这是一个很有意思的阻塞队列，其中每个插入操作必须等待另一个线程的移除操作，同样任何一个移除操作都等待另一个线程的插入操作。
@@ -12,6 +14,7 @@ import java.util.concurrent.SynchronousQueue;
  * 由于队列没有容量，因此不能调用peek操作，因为只有移除元素时才有元素。
  */
 public class SynchronousQueueTest {
+
     @Test
     public void test() throws InterruptedException {
         SynchronousQueue<Integer> queue = new SynchronousQueue<Integer>();
@@ -20,7 +23,6 @@ public class SynchronousQueueTest {
         new Customer(queue).start();
 
         Thread.sleep(10000);
-
     }
 
     static class Product extends Thread {
@@ -31,17 +33,14 @@ public class SynchronousQueueTest {
         }
 
         @Override
+        @SneakyThrows
         public void run() {
             while (true) {
                 int rand = new Random().nextInt(1000);
-                try {
-                    Thread.sleep(1000);
-                    System.out.println("生产了一个产品: " + rand);
-                    System.out.println("等待三秒后运送出去...");
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                Thread.sleep(1000);
+                System.out.println("生产了一个产品: " + rand);
+                System.out.println("等待三秒后运送出去...");
+                Thread.sleep(3000);
 
                 try {
                     queue.put(rand);
@@ -73,5 +72,13 @@ public class SynchronousQueueTest {
 
             }
         }
+    }
+
+    @Test
+    @SneakyThrows
+    public void test2() {
+        System.out.println("test not try catch");
+        Thread.sleep(1000);
+        System.out.println("sleep not with try catch");
     }
 }
