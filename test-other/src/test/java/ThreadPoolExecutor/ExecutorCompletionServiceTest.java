@@ -10,6 +10,9 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 如果向Executor提交了一组计算任务，并且希望在计算完成后获得结果，那么可以保留与每个任务关联的Future，然后反复使用get方法，
  * 同时将参数timeout指定为0，从而通过轮询来判断任务是否完成。这种方法虽然可行，但却有些繁琐。
@@ -39,4 +42,6 @@ public class ExecutorCompletionServiceTest {
         }
 
     }
+
+
 }

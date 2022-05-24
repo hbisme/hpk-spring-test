@@ -11,18 +11,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolExecutorTest {
 
-    public static volatile  int count = 0;
+    public static volatile int count = 0;
 
-    public static synchronized void  addCount() {
-        count ++;
+    public static synchronized void addCount() {
+        count++;
     }
 
-    public static synchronized void  delCount() {
-        count --;
+    public static synchronized void reduceCount() {
+        count--;
     }
 
 
-        public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         int corePoolSize = 4;
         int maximumPoolSize = 4;
         long keepAliveTime = 10;
@@ -44,7 +44,6 @@ public class ThreadPoolExecutorTest {
         }
 
         System.in.read();
-
     }
 
 
@@ -89,7 +88,7 @@ public class ThreadPoolExecutorTest {
             System.out.println(this.toString() + " is running!, count: " + count);
             try {
                 java.lang.Thread.sleep(5000);
-                delCount();
+                reduceCount();
                 System.out.println(this.toString() + "is ending!, count: " + count);
             } catch (InterruptedException e) {
                 e.printStackTrace();

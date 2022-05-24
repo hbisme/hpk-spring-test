@@ -159,28 +159,13 @@ public class Test3 {
                 "HIRAC# 2019-11-20 02:00:12 exitCode = 0";
 
 
-        // List<String> s = Arrays.stream(log.split("\n")).filter(x -> x.contains("CONSOLE")).collect(Collectors.toList());
-        // String log2 = String.join("\n", s);
-        // System.out.println(log2);
 
 
         String[] t = log.split("\n");
         io.vavr.collection.List<String> log1 = io.vavr.collection.List.of(t);
-        // System.out.println(t1);
-        // System.out.println(t1.length());
 
         List<String> log2 = log1.filter(x -> x.contains("CONSOLE"));
         System.out.println(log2);
-
-
-        // val log3 = log2.zipWithIndex
-        //
-        // val log4 = log3.filter(_._1.contains("INFO manager.SqlManager: Executing SQL statement:")).map(_._2)
-        // val log5 = log3.filter(_._1.contains("INFO orm.CompilationManager: HADOOP_MAPRED_HOME")).map(_._2)
-        //
-        //
-        // val l6 = log4 ++ log5
-        // val log6 = l6.init.zip(l6.tail)
 
 
         List<Tuple2<String, Integer>> log3 = log2.zipWithIndex();
@@ -204,19 +189,6 @@ public class Test3 {
 
         System.out.println("--------");
         System.out.println(log7.mkString("\n"));
-
-
-        Option<String> str = Option.of(null);
-        // System.out.println(str);
-        // System.out.println(str.map(String::length));
-        // tttt = str.map(x -> {
-        //     System.out.println("x: " + x);
-        //     return null;
-        // }
-        // );
-        // Option<Integer> ttt = str.flatMap(v -> Option.of(v.length()));
-        // System.out.println(ttt);
-
 
         Queue<Integer> queue = Queue.of(1, 2, 3)
                 .enqueue(4)

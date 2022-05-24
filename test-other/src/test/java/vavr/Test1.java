@@ -25,6 +25,8 @@ import io.vavr.collection.Stream;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
+import lombok.val;
+import lombok.var;
 
 import static io.vavr.API.$;
 import static io.vavr.Predicates.*; // instanceOf
@@ -49,14 +51,14 @@ public class Test1 {
      */
     @Test
     public void test2() {
-        java.util.List<String> jList = new ArrayList<>();
+        val jList = new ArrayList<String>();
         jList.add("a");
         jList.add("b");
         jList.add("c");
         System.out.println(jList);
 
         // 使用ofAll来转换
-        List<String> list = List.ofAll(jList);
+        val list = List.ofAll(jList);
 
         System.out.println(list);
     }
@@ -120,7 +122,8 @@ public class Test1 {
         // User user = new User(1, "hb");
         // of会构造None或Some对象
         Option<User> mayBe = Option.of(user);
-        Option<User> t = mayBe.map(u -> new User(2, u.getName()))
+        Option<User> t = mayBe
+                .map(u -> new User(2, u.getName()))
                 .filter(u -> u.getId() > 1);
         System.out.println(t.getOrElse(new User(-1, "None")));
     }
@@ -132,9 +135,13 @@ public class Test1 {
         list.add(new User(1, "hb2"));
         list.add(new User(3, "hb3"));
 
-        Map<Integer, Stream<User>> map = Stream.ofAll(list).groupBy(x -> x.getId());
+        final List<User> of = List.of(
+                new User(1, "hb1"),
+                new User(2, "hb2"),
+                new User(3, "hb3"));
 
-        System.out.println(map);
+        val tuple2s = of.groupBy(x -> x.getId());
+        System.out.println(tuple2s);
     }
 
 
@@ -144,7 +151,7 @@ public class Test1 {
     @Test
     public void testFunction() {
         Function3<String, String, String, String> function3 = (a, b, c) -> a + b + c + "hello";
-        String result = function3.apply("1", "2", "3");
+        val result = function3.apply("1", "2", "3");
         System.out.println(result);
     }
 
@@ -169,7 +176,6 @@ public class Test1 {
 
         Map<String, String> m = tt.toMap(x -> x._1, x -> x._2);
         System.out.println(m);
-
     }
 
     /**
