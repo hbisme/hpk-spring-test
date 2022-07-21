@@ -17,6 +17,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UseDemoTest {
 
+    @Test
+    public void test1() {
+        // 链式set,需要加@Accessors(chain = true)注解
+        UserDemo userDemo = new UserDemo(101)
+                .setName("hb")
+                .setAddress("hz");
+
+        System.out.println(userDemo.toString());
+    }
+
+
 
     @Test
     public void testVarVal() {
