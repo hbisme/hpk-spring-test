@@ -86,6 +86,8 @@ public class CompareJodaTimeAndJava {
 
         System.out.println(ifTime1AfterTime2(time1, time2));
         System.out.println(ifTime1AfterTime2Joda(time1, time2));
+
+
     }
 
 
