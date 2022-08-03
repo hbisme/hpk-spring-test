@@ -89,7 +89,7 @@ public class TestSpringRelectionUtils {
         Method getDouble = ReflectionUtils.findMethod(aClass, "getDouble");
 
         ReflectionUtils.makeAccessible(getDouble);
-        String o = (String)ReflectionUtils.invokeJdbcMethod(getDouble, student);
+        String o = (String)ReflectionUtils.invokeMethod(getDouble, student);
         System.out.println(o);
     }
 
