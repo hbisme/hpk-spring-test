@@ -14,13 +14,7 @@
     <modules>
         <module>hipac-redis</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
