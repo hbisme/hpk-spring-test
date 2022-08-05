@@ -28,10 +28,15 @@ import lombok.var;
 public class TestSpringRelectionUtils {
 
     @Data
-    @AllArgsConstructor
+    // @AllArgsConstructor
     class Student {
         private int id;
         private String name;
+
+        public Student(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
 
         public String getDouble() {
             return name + "_" + name;
@@ -61,7 +66,7 @@ public class TestSpringRelectionUtils {
     @SneakyThrows
     @Test
     public void testGetField() {
-        val student = new Student(100, "hb");
+        Student student = new Student(100, "hb");
         val aClass = student.getClass();
         final Field id = ReflectionUtils.findField(aClass, "id");
         ReflectionUtils.makeAccessible(id);
