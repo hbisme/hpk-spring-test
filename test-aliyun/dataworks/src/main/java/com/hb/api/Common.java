@@ -1,0 +1,37 @@
+package com.hb.api;
+
+import com.alibaba.fastjson.JSONObject;
+import com.aliyun.teaopenapi.models.Config;
+
+import java.util.Map;
+
+/**
+ * @author hubin
+ * @date 2022年08月09日 14:32
+ */
+public class Common {
+    /**
+     * 使用AK&SK初始化账号Client
+     *
+     * @param accessKeyId
+     * @param accessKeySecret
+     * @return Client
+     * @throws Exception
+     */
+    public static com.aliyun.dataworks_public20200518.Client createClient(String accessKeyId, String accessKeySecret) throws Exception {
+        Config config = new Config()
+                // 您的 AccessKey ID
+                .setAccessKeyId(accessKeyId)
+                // 您的 AccessKey Secret
+                .setAccessKeySecret(accessKeySecret);
+        // 访问的域名
+        config.endpoint = "dataworks.cn-hangzhou.aliyuncs.com";
+        return new com.aliyun.dataworks_public20200518.Client(config);
+    }
+
+    public static Map<String, Object> toMap(Object object) {
+        JSONObject jsonObject = (JSONObject) JSONObject.toJSON(object);
+        Map map = jsonObject.toJavaObject(Map.class);
+        return map;
+    }
+}
