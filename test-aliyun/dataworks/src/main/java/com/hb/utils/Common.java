@@ -1,4 +1,4 @@
-package com.hb.api;
+package com.hb.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.teaopenapi.models.Config;
@@ -24,6 +24,17 @@ public class Common {
                 .setAccessKeyId(accessKeyId)
                 // 您的 AccessKey Secret
                 .setAccessKeySecret(accessKeySecret);
+        // 访问的域名
+        config.endpoint = "dataworks.cn-hangzhou.aliyuncs.com";
+        return new com.aliyun.dataworks_public20200518.Client(config);
+    }
+
+    public static com.aliyun.dataworks_public20200518.Client createClient() throws Exception {
+        Config config = new Config()
+                // 您的 AccessKey ID
+                .setAccessKeyId(com.hb.api.Config.ACCESS_KEY_ID)
+                // 您的 AccessKey Secret
+                .setAccessKeySecret(com.hb.api.Config.ACCESS_KEY_SECRET);
         // 访问的域名
         config.endpoint = "dataworks.cn-hangzhou.aliyuncs.com";
         return new com.aliyun.dataworks_public20200518.Client(config);

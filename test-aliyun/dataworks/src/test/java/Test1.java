@@ -1,13 +1,20 @@
-import com.hb.api.Common;
+import com.hb.utils.Common;
 import com.hb.api.CreateFile;
+import com.hb.api.DeleteFile;
 import com.hb.api.DeployFile;
+import com.hb.api.ListFiles;
 import com.hb.api.SubmitFile;
+import com.hb.api.UpdateFile;
 import com.hb.argument.CreateFileInputArgs;
 import com.hb.argument.DeployFileInputArgs;
+import com.hb.argument.ListFilesInputArgs;
+import com.hb.argument.ListFilesOutputArgs;
 import com.hb.argument.SubmitFileInputArgs;
+import com.hb.argument.UpdateFileInputArgs;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,6 +56,32 @@ public class Test1 {
         Map<String, Object> map = Common.toMap(deployFileInputArgs);
         Long id = DeployFile.deployFile(map);
         System.out.println(id);
+    }
+
+    @Test
+    public void testDeleteFile() throws Exception {
+        DeployFileInputArgs deployFileInputArgs = new DeployFileInputArgs(505961665L, 48843L);
+        Map<String, Object> map = Common.toMap(deployFileInputArgs);
+        boolean res = DeleteFile.deleteFile(map);
+        System.out.println(res);
+    }
+
+    @Test
+    public void testUpdateFile() throws Exception {
+        UpdateFileInputArgs updateFileInputArgs = new UpdateFileInputArgs(505961472L, 48843L, 1);
+        updateFileInputArgs.setContent("select 20220810");
+        Map<String, Object> map = Common.toMap(updateFileInputArgs);
+        boolean res = UpdateFile.updateFile(map);
+        System.out.println(res);
+    }
+
+    @Test
+    public void testListFile() throws Exception {
+        ListFilesInputArgs listFilesInputArgs = new ListFilesInputArgs(48843L);
+        listFilesInputArgs.setKeyword("test");
+        Map<String, Object> map = Common.toMap(listFilesInputArgs);
+        List<ListFilesOutputArgs> listFilesOutputArgs = ListFiles.listFiles(map);
+        System.out.println(listFilesOutputArgs);
     }
 
 

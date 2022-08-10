@@ -2,8 +2,8 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
-import com.aliyun.teaopenapi.models.*;
 import com.aliyun.teautil.models.*;
+import com.hb.utils.Common;
 
 /**
  * @author hubin
@@ -15,7 +15,7 @@ public class GetDeployment {
 
     public static void main(String[] args_) throws Exception {
         java.util.List<String> args = java.util.Arrays.asList(args_);
-        com.aliyun.dataworks_public20200518.Client client = Common.createClient("LTAI5tPqJz5fnRjTZnfQGoVy", "DwWFusk7ChskWDmxpfROBkdUPJ6Cth");
+        com.aliyun.dataworks_public20200518.Client client = Common.createClient();
         GetDeploymentRequest getDeploymentRequest = new GetDeploymentRequest()
                 .setDeploymentId(12273913L)
                 .setProjectId(48843L);

@@ -1,5 +1,6 @@
 package com.hb.api;
 
+
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
 import com.aliyun.teautil.models.*;
@@ -9,43 +10,44 @@ import java.util.Map;
 
 import lombok.extern.java.Log;
 
+
 /**
  * @author hubin
- * @date 2022年08月09日 15:01
+ * @date 2022年08月10日 11:30
  */
 @Log
-public class UpdateFile {
-    public static boolean updateFile(Map<String, Object> map) throws Exception {
+public class DeleteFile {
+    public static boolean deleteFile(Map<String, Object> map) throws Exception {
         com.aliyun.dataworks_public20200518.Client client = Common.createClient();
-        UpdateFileRequest updateFileRequest = UpdateFileRequest.build(map);
-
+        DeleteFileRequest deleteFileRequest = DeleteFileRequest.build(map);
         RuntimeOptions runtime = new RuntimeOptions();
+
         try {
             // 复制代码运行请自行打印 API 的返回值
-            UpdateFileResponse updateFileResponse = client.updateFileWithOptions(updateFileRequest, runtime);
-            return updateFileResponse.getBody().getSuccess();
+            DeleteFileResponse deleteFileResponse = client.deleteFileWithOptions(deleteFileRequest, runtime);
+            return deleteFileResponse.getBody().getSuccess();
         } catch (TeaException error) {
             log.warning(error.message);
         } catch (Exception _error) {
             TeaException error = new TeaException(_error.getMessage(), _error);
             log.warning(error.message);
         }
+
         return false;
     }
+
 
 
     public static void main(String[] args_) throws Exception {
         java.util.List<String> args = java.util.Arrays.asList(args_);
         com.aliyun.dataworks_public20200518.Client client = Common.createClient("LTAI5tPqJz5fnRjTZnfQGoVy", "DwWFusk7ChskWDmxpfROBkdUPJ6Cth");
-        UpdateFileRequest updateFileRequest = new UpdateFileRequest()
-                .setAutoRerunTimes(1)
-                .setProjectId(48843L)
+        DeleteFileRequest deleteFileRequest = new DeleteFileRequest()
                 .setFileId(505961472L)
-                .setContent("select 123");
+                .setProjectId(48843L);
         RuntimeOptions runtime = new RuntimeOptions();
         try {
             // 复制代码运行请自行打印 API 的返回值
-            client.updateFileWithOptions(updateFileRequest, runtime);
+            client.deleteFileWithOptions(deleteFileRequest, runtime);
         } catch (TeaException error) {
             // 如有需要，请打印 error
             com.aliyun.teautil.Common.assertAsString(error.message);
@@ -55,5 +57,4 @@ public class UpdateFile {
             com.aliyun.teautil.Common.assertAsString(error.message);
         }
     }
-
 }

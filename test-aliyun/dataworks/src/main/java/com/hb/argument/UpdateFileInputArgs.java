@@ -14,6 +14,12 @@ public class UpdateFileInputArgs {
     // 文件出错后，自动重跑的次数
     private Integer autoRerunTimes=1;
 
+    public UpdateFileInputArgs(Long fileId, Long projectId, Integer autoRerunTimes) {
+        this.fileId = fileId;
+        this.projectId = projectId;
+        this.autoRerunTimes = autoRerunTimes;
+    }
+
     // 以下的参数都是可选的
     private String content;
 
@@ -26,7 +32,11 @@ public class UpdateFileInputArgs {
     // 文件所有者的用户ID
     private String owner;
 
+    private Boolean autoParsing;
 
+    private String InputParameters;
+
+    private String OutputParameters;
 
 
 

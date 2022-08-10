@@ -2,8 +2,8 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
-import com.aliyun.teaopenapi.models.*;
 import com.aliyun.teautil.models.*;
+import com.hb.utils.Common;
 
 import java.util.Map;
 
@@ -17,7 +17,7 @@ import lombok.extern.java.Log;
 public class DeployFile {
 
     public static Long deployFile(Map<String, Object> map) throws Exception {
-        com.aliyun.dataworks_public20200518.Client client = Common.createClient("LTAI5tPqJz5fnRjTZnfQGoVy", "DwWFusk7ChskWDmxpfROBkdUPJ6Cth");
+        com.aliyun.dataworks_public20200518.Client client = Common.createClient();
         DeployFileRequest deployFileRequest = DeployFileRequest.build(map);
         RuntimeOptions runtime = new RuntimeOptions();
         try {
