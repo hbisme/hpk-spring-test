@@ -1,24 +1,13 @@
 package mockTest;
 
-import com.hb.mockservice.User;
-import com.hb.mockservice.UserMapper;
-import com.hb.mockservice.UserService;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.List;
-
-import static org.mockito.Mockito.when;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsNull.notNullValue;
 
 /**
  * @author hubin
@@ -32,6 +21,9 @@ public class MockitoDemoTests {
     private List list;
 
 
+    /**
+     * 使用前要先设置,不然会null
+     */
     @Before
     public void before() {
         Mockito.when(list.get(Mockito.anyInt())).thenReturn(100);

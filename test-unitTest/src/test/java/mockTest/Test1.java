@@ -3,7 +3,6 @@ package mockTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import static org.mockito.Mockito.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,6 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import lombok.Data;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * @author hubin
