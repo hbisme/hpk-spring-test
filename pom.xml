@@ -26,6 +26,8 @@
         <module>test-other2</module>
         <module>test-ytdruid</module>
         <module>test-other3</module>
+        <module>test-controller</module>
+        <module>test-unitTest</module>
 
     </modules>
 
@@ -79,6 +81,15 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>

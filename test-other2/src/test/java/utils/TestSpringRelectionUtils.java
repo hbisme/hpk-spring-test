@@ -38,6 +38,14 @@ public class TestSpringRelectionUtils {
             this.name = name;
         }
 
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
         public String getDouble() {
             return name + "_" + name;
         }
@@ -67,18 +75,18 @@ public class TestSpringRelectionUtils {
     @Test
     public void testGetField() {
         Student student = new Student(100, "hb");
-        val aClass = student.getClass();
+        Class<? extends Student> aClass = student.getClass();
         final Field id = ReflectionUtils.findField(aClass, "id");
         ReflectionUtils.makeAccessible(id);
 
-        val field = (int) ReflectionUtils.getField(id, student);
+        int field = (int) ReflectionUtils.getField(id, student);
         System.out.println(field);
     }
 
     @Test
     public void testSetField() {
-        val student = new Student(100, "hb");
-        val aClass = student.getClass();
+        Student student = new Student(100, "hb");
+        Class<? extends Student> aClass = student.getClass();
         final Field id = ReflectionUtils.findField(aClass, "id");
         ReflectionUtils.makeAccessible(id);
 
@@ -89,8 +97,8 @@ public class TestSpringRelectionUtils {
     @SneakyThrows
     @Test
     public void testMethod() {
-        val student = new Student(100, "hb");
-        val aClass = student.getClass();
+        Student student = new Student(100, "hb");
+        Class<? extends Student> aClass = student.getClass();
         Method getDouble = ReflectionUtils.findMethod(aClass, "getDouble");
 
         ReflectionUtils.makeAccessible(getDouble);
