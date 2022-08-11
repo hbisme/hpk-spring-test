@@ -13,12 +13,14 @@ import java.util.List;
 import java.util.Map;
 
 import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author hubin
  * @date 2022年08月10日 11:45
  */
 @Log
+// @Slf4j
 public class ListFiles {
 
     public static List<ListFilesOutputArgs> listFiles(Map<String, Object> map) throws Exception {
