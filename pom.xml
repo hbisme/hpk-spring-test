@@ -28,6 +28,7 @@
         <module>test-other3</module>
         <module>test-controller</module>
         <module>test-unitTest</module>
+        <module>test-resilience4j</module>
 
     </modules>
 

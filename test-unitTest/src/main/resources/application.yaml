@@ -1,0 +1,7 @@
+spring:
+  # datasource 数据源配置内容 这里实际并不会使用到该配置文件，仅仅占个“坑”。会使用测试目录下的配置文件，“覆盖”它。
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lab-39-mysql?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password:
