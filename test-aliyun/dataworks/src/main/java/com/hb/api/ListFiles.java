@@ -2,6 +2,7 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
+import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.teautil.models.*;
 import com.hb.argument.ListFilesOutputArgs;
 import com.hb.utils.Common;
@@ -22,9 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Log
 // @Slf4j
 public class ListFiles {
-
-    public static List<ListFilesOutputArgs> listFiles(Map<String, Object> map) throws Exception {
-        com.aliyun.dataworks_public20200518.Client client = Common.createClient();
+    public static List<ListFilesOutputArgs> listFiles(Map<String, Object> map, Client client) throws Exception {
         ListFilesRequest listFilesRequest = ListFilesRequest.build(map);
 
         RuntimeOptions runtime = new RuntimeOptions();
@@ -39,10 +38,10 @@ public class ListFiles {
             return listFilesOutputArgs;
 
         } catch (TeaException error) {
-            log.warning(error.message);
+            log.warning("list文件失败1,错误信息: " +  error.message);
         } catch (Exception _error) {
             TeaException error = new TeaException(_error.getMessage(), _error);
-            log.warning(error.message);
+            log.warning("list文件失败2,错误信息: " +  error.message);
         }
         return null;
 

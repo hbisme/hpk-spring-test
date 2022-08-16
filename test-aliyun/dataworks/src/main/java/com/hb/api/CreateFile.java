@@ -2,6 +2,7 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
+import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.teautil.models.*;
 import com.hb.utils.Common;
 
@@ -15,66 +16,29 @@ import lombok.extern.java.Log;
  */
 @Log
 public class CreateFile {
-    public static Long createFile(Map<String, Object> map) throws Exception {
-        com.aliyun.dataworks_public20200518.Client client = Common.createClient();
+    public static Long createFile(Map<String, Object> map, Client client) throws Exception {
         CreateFileRequest createFileRequest = CreateFileRequest.build(map);
 
         RuntimeOptions runtime = new RuntimeOptions();
         try {
             // 复制代码运行请自行打印 API 的返回值
             CreateFileResponse fileWithOptions = client.createFileWithOptions(createFileRequest, runtime);
-            if (fileWithOptions.statusCode == 200) {
+            if (fileWithOptions.body.getSuccess()) {
 
                 Long fileId = fileWithOptions.getBody().getData();
                 return fileId;
             }
 
         } catch (TeaException error) {
-            log.warning(error.message);
+            log.warning("创建文件失败1,错误信息: " +  error.message);
 
         } catch (Exception _error) {
             TeaException error = new TeaException(_error.getMessage(), _error);
-            log.warning(error.message);
+            log.warning("创建文件失败2,错误信息: " +  error.message);
         }
 
         return -1L;
     }
-
-
-
-    // public static Long createFile(CreateFileInputArgs createFileInputArgs) throws Exception {
-    //     com.aliyun.dataworks_public20200518.Client client = Common.createClient("LTAI5tPqJz5fnRjTZnfQGoVy", "DwWFusk7ChskWDmxpfROBkdUPJ6Cth");
-    //     CreateFileRequest createFileRequest = new CreateFileRequest()
-    //             .setFileFolderPath(createFileInputArgs.getFileFolderPath())
-    //             .setProjectId(createFileInputArgs.getProjectId())
-    //             .setFileName(createFileInputArgs.getFileName())
-    //             .setFileType(createFileInputArgs.getFileType())
-    //             .setContent(createFileInputArgs.getContent())
-    //             .setInputList(createFileInputArgs.getInputList());
-    //
-    //
-    //
-    //
-    //     RuntimeOptions runtime = new RuntimeOptions();
-    //     try {
-    //         // 复制代码运行请自行打印 API 的返回值
-    //         CreateFileResponse fileWithOptions = client.createFileWithOptions(createFileRequest, runtime);
-    //         if (fileWithOptions.statusCode == 200) {
-    //
-    //             Long fileId = fileWithOptions.getBody().getData();
-    //             return fileId;
-    //         }
-    //
-    //     } catch (TeaException error) {
-    //         log.warning(error.message);
-    //
-    //     } catch (Exception _error) {
-    //         TeaException error = new TeaException(_error.getMessage(), _error);
-    //         log.warning(error.message);
-    //     }
-    //
-    //     return -1L;
-    // }
 
 
     public static void main(String[] args_) throws Exception {

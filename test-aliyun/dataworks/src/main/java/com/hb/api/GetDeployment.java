@@ -2,6 +2,7 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
+import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.teautil.models.*;
 import com.hb.utils.Common;
 

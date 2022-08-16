@@ -3,6 +3,7 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
+import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.teautil.models.*;
 import com.hb.utils.Common;
 
@@ -17,8 +18,7 @@ import lombok.extern.java.Log;
  */
 @Log
 public class DeleteFile {
-    public static boolean deleteFile(Map<String, Object> map) throws Exception {
-        com.aliyun.dataworks_public20200518.Client client = Common.createClient();
+    public static boolean deleteFile(Map<String, Object> map, Client client) throws Exception {
         DeleteFileRequest deleteFileRequest = DeleteFileRequest.build(map);
         RuntimeOptions runtime = new RuntimeOptions();
 
@@ -27,14 +27,15 @@ public class DeleteFile {
             DeleteFileResponse deleteFileResponse = client.deleteFileWithOptions(deleteFileRequest, runtime);
             return deleteFileResponse.getBody().getSuccess();
         } catch (TeaException error) {
-            log.warning(error.message);
+            log.warning("删除文件失败1,错误信息: " +  error.message);
         } catch (Exception _error) {
             TeaException error = new TeaException(_error.getMessage(), _error);
-            log.warning(error.message);
+            log.warning("删除文件失败2,错误信息: " +  error.message);
         }
 
         return false;
     }
+
 
 
 

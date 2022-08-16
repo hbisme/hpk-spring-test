@@ -2,6 +2,7 @@ package com.hb.api;
 
 import com.aliyun.tea.*;
 import com.aliyun.dataworks_public20200518.models.*;
+import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.teautil.models.*;
 import com.hb.utils.Common;
 
@@ -15,9 +16,7 @@ import lombok.extern.java.Log;
  */
 @Log
 public class DeployFile {
-
-    public static Long deployFile(Map<String, Object> map) throws Exception {
-        com.aliyun.dataworks_public20200518.Client client = Common.createClient();
+    public static Long deployFile(Map<String, Object> map, Client client) throws Exception {
         DeployFileRequest deployFileRequest = DeployFileRequest.build(map);
         RuntimeOptions runtime = new RuntimeOptions();
         try {
@@ -25,10 +24,10 @@ public class DeployFile {
             DeployFileResponse deployFileResponse = client.deployFileWithOptions(deployFileRequest, runtime);
             return deployFileResponse.getBody().getData();
         } catch (TeaException error) {
-            log.warning(error.message);
+            log.warning("发布文件失败1,错误信息: " +  error.message);
         } catch (Exception _error) {
             TeaException error = new TeaException(_error.getMessage(), _error);
-            log.warning(error.message);
+            log.warning("发布文件失败2,错误信息: " +  error.message);
         }
 
         return -1L;
