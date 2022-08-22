@@ -1,4 +1,7 @@
 import com.aliyun.dataworks_public20200518.Client;
+import com.aliyun.dataworks_public20200518.models.ListDeploymentsResponseBody;
+import com.hb.api.GetDeployment;
+import com.hb.api.ListDeployments;
 import com.hb.utils.Common;
 import com.hb.api.CreateFile;
 import com.hb.api.DeleteFile;
@@ -15,8 +18,11 @@ import com.hb.argument.UpdateFileInputArgs;
 
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import io.vavr.control.Try;
 
 /**
  * @author hubin
@@ -91,6 +97,49 @@ public class Test1 {
         Map<String, Object> map = Common.toMap(listFilesInputArgs);
         List<ListFilesOutputArgs> listFilesOutputArgs = ListFiles.listFiles(map, client);
         System.out.println(listFilesOutputArgs);
+    }
+
+    @Test
+    public void testlistDeployments() throws Exception {
+        Client client = Common.createCrmClient();
+        Map<String, Object> map = new HashMap<>();
+        map.put("ProjectId", 48843L);
+        map.put("PageNumber", 100);
+        List<ListDeploymentsResponseBody.ListDeploymentsResponseBodyDataDeployments> listDeploymentsResponseBodyDataDeployments = ListDeployments.listDeployments(map, client);
+        System.out.println(listDeploymentsResponseBodyDataDeployments);
+
+    }
+
+    @Test
+    public void testGetDeployments() throws Exception {
+        Client client = Common.createCrmClient();
+        boolean deployment = GetDeployment.waitDeployment(48843L, 12615565L, client);
+        System.out.println(deployment);
+    }
+
+
+    public static void main(String[] args) {
+        // Try result = Try.of(() -> 0)
+        //         .map((a) -> 10 / a) //即使此处抛出异常，不会导致当前线程结束。这里无需使用 try{}catch()对代码进行捕获
+        //         .andThen(() -> System.out.printf("--抛出异常此处不会执行--")) //执行一个动作，不修改结果
+        //         .map(i -> {
+        //             System.out.println("当前值：" + i);
+        //             return i + 10;
+        //         })
+        //         .onFailure(e -> e.printStackTrace())//失败时会触发onFailure
+        //         .recover(ArithmeticException.class, 1000) //如果遇到 Exception类型的异常,则返回1000
+        //         .map((a) -> a + 1);
+        //
+        //
+        // System.out.println(result);
+
+        for (Integer integer : io.vavr.collection.List.range(1, 10).toJavaList()) {
+            System.out.println(integer);
+            if(integer >5) {
+                return;
+            }
+        }
+
     }
 
 }
