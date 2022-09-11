@@ -29,6 +29,7 @@
         <module>test-controller</module>
         <module>test-unitTest</module>
         <module>test-resilience4j</module>
+        <module>test-tools</module>
 
     </modules>
 
@@ -60,7 +61,7 @@
         <dependency>
             <groupId>io.vavr</groupId>
             <artifactId>vavr</artifactId>
-            <version>0.10.3</version>
+            <version>0.10.4</version>
         </dependency>
 
         <dependency>

@@ -193,13 +193,11 @@ public class JGraphtTest {
         g.addEdge(d, f);
         g.addEdge(e, f);
 
-        JGraphXAdapter<String, DefaultEdge> graphAdapter =
-                new JGraphXAdapter<String, DefaultEdge>(g);
+        JGraphXAdapter<String, DefaultEdge> graphAdapter = new JGraphXAdapter<String, DefaultEdge>(g);
         mxIGraphLayout layout = new mxCircleLayout(graphAdapter);
         layout.execute(graphAdapter.getDefaultParent());
 
-        BufferedImage image =
-                mxCellRenderer.createBufferedImage(graphAdapter, null, 2, Color.WHITE, true, null);
+        BufferedImage image = mxCellRenderer.createBufferedImage(graphAdapter, null, 2, Color.WHITE, true, null);
         File imgFile = new File("src/test/resources/graph.png");
         ImageIO.write(image, "PNG", imgFile);
 
@@ -208,6 +206,47 @@ public class JGraphtTest {
     }
 
 
+    /**
+     * 查找指定节点的上游 (广度优先遍历)
+     */
+    @Test
+    public void test6() {
+        String a = "A";
+        String b = "B";
+        String c = "C";
+        String d = "D";
+        String e = "E";
+        String f = "F";
+
+        Graph<String, DefaultEdge> g = new DefaultDirectedGraph<>(DefaultEdge.class);
+
+        // 添加顶点
+        g.addVertex(a);
+        g.addVertex(b);
+        g.addVertex(c);
+        g.addVertex(d);
+        g.addVertex(e);
+        g.addVertex(f);
+
+        // 添加边
+        g.addEdge(a, b);
+        g.addEdge(a, c);
+        g.addEdge(b, d);
+        g.addEdge(c, e);
+        g.addEdge(d, f);
+        g.addEdge(e, f);
+
+
+        // 广度优先来遍历到节点
+        Iterator<String> iterator = new BreadthFirstIterator<>(g, c);
+        while (iterator.hasNext()) {
+            System.out.println(": " + iterator.next());
+        }
+
+
+
+
+    }
 
 
 

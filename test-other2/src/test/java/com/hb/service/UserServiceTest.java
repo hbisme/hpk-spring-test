@@ -16,6 +16,9 @@ import javax.validation.Validator;
 
 import static org.junit.Assert.*;
 
+/**
+ * spring boot 参数校验测试,好像有点问题.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 public class UserServiceTest {
@@ -47,6 +50,7 @@ public class UserServiceTest {
     public void testValidator() {
         System.out.println(validator);
         UserDto addDTO = new UserDto();
+        System.out.println(addDTO);
         final Set<ConstraintViolation<UserDto>> result = validator.validate(addDTO);
 
         for (ConstraintViolation<UserDto> userDtoConstraintViolation : result) {

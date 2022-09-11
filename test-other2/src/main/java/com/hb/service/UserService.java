@@ -8,8 +8,12 @@ import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+
+import lombok.extern.java.Log;
 
 /**
  * @author hubin
@@ -35,5 +39,15 @@ public class UserService {
 
 
 
+    @PostConstruct
+    public void init() {
+        logger.info("UserService 初始化..");
+    }
+
+
+    @PreDestroy
+    public void  destroy() {
+        logger.info("UserService 进行 destroy..");
+    }
 
 }
