@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="hb.user" class="com.hb.dto.User">
+        <property name="name" value="hb"></property>
+    </bean>
+
+<!--    <bean id="urule.scriptCellParser" class="com.yangt.urule.parse.table.ScriptCellParser"></bean>-->
+<!--    <bean id="urule.rowParser" class="com.yangt.urule.parse.table.RowParser"></bean>-->
+<!--    <bean id="urule.columnParser" class="com.yangt.urule.parse.table.ColumnParser"></bean>-->
+<!--    <bean id="urule.decisionTableParser" class="com.yangt.urule.parse.table.DecisionTableParser">-->
+<!--        <property name="rowParser" ref="urule.rowParser"></property>-->
+<!--        <property name="columnParser" ref="urule.columnParser"></property>-->
+<!--        <property name="cellParser" ref="urule.cellParser"></property>-->
+<!--        <property name="rulesRebuilder" ref="urule.rulesRebuilder"></property>-->
+<!--    </bean>-->
+
+
+</beans>
