@@ -30,6 +30,8 @@
         <module>test-unitTest</module>
         <module>test-resilience4j</module>
         <module>test-tools</module>
+        <module>test-sqlParser</module>
+        <module>test-spring</module>
 
     </modules>
 

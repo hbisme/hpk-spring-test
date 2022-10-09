@@ -19,11 +19,27 @@ public interface StreamJobMapper {
     StreamingJobDO selectByPrimaryKey(Long id);
 
     /**
-     * 多条件查询作业信息
+     * 多条件查询作业信息,测试动态SQL 'IF'
      * @param
      * @return
      */
     List<StreamingJobDO> selectByJobParam(StreamJobDalQuery streamJobDalQuery);
+
+
+    /**
+     * 多条件查询作业信息,测试动态SQL 'Choose' (if/else)
+     * @param
+     * @return
+     */
+    List<StreamingJobDO> testChoose(StreamJobDalQuery streamJobDalQuery);
+
+
+    /**
+     * 多条件查询作业信息,测试动态SQL 'foreach'
+     * @param streamingJobDOS
+     * @return
+     */
+    List<StreamingJobDO> testForeach(List<StreamingJobDO> streamingJobDOS);
 
 
     /**

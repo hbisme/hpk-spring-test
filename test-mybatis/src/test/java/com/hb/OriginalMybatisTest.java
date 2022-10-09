@@ -45,6 +45,37 @@ public class OriginalMybatisTest {
     }
 
     /**
+     * 测试动态SQL choose(if/else)
+     */
+    @Test
+    public void testChoose() {
+        System.out.println("测试 动态SQL choose(if/else)");
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        List<StreamingJobDO> res = streamJobMapper.testChoose(streamJobDalQuery);
+        System.out.println("length: " + res.size());
+        System.out.println(res);
+
+    }
+
+    /**
+     * 测试动态SQL foreach
+     */
+    @Test
+    public void testForeach() {
+        System.out.println("测试动态SQL foreach");
+        StreamingJobDO streamingJobDO1 = new StreamingJobDO();
+        streamingJobDO1.setName("sven_test@hb_test_33");
+        StreamingJobDO streamingJobDO2 = new StreamingJobDO();
+        streamingJobDO2.setName("sven_test@hb_test_34");
+
+        List<StreamingJobDO> jobList = io.vavr.collection.List.of(streamingJobDO1, streamingJobDO2).toJavaList();
+        List<StreamingJobDO> res = streamJobMapper.testForeach(jobList);
+        System.out.println("length: " + res.size());
+        System.out.println(res);
+
+    }
+
+    /**
      * 分页插件使用, 使用 pagehelper-spring-boot-starter, 使用默认配置
      * 起始页从1开始计数.
      */
