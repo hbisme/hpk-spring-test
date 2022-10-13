@@ -1,16 +1,11 @@
-package vavr;
+package com.hb.vavr;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 import io.vavr.API;
-import io.vavr.Tuple;
 import io.vavr.Tuple2;
-import io.vavr.Tuple3;
 import io.vavr.collection.List;
 import io.vavr.control.Option;
 import lombok.extern.java.Log;
@@ -20,9 +15,14 @@ import static io.vavr.API.Case;
 import static io.vavr.API.Match;
 import static io.vavr.API.Tuple;
 import static io.vavr.API.run;
-import static io.vavr.Predicates.isIn;
+import static io.vavr.Predicates.allOf;
+import static io.vavr.Predicates.anyOf;
 import static io.vavr.Predicates.instanceOf;
-import static io.vavr.Predicates.*;
+import static io.vavr.Predicates.is;
+import static io.vavr.Predicates.isIn;
+import static io.vavr.Predicates.isNotNull;
+import static io.vavr.Predicates.isNull;
+import static io.vavr.Predicates.noneOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 // import static javaslang.Patterns.*;
@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @date 2022年08月29日 16:00
  */
 @Log
-public class TestMatch {
+public class MatchTest {
 
     @Test
     public void test1() {

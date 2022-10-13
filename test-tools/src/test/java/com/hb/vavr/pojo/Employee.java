@@ -1,4 +1,4 @@
-package vavr;
+package com.hb.vavr.pojo;
 
 /**
  * @author hubin

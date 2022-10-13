@@ -1,14 +1,10 @@
-package vavr;
+package com.hb.vavr;
 
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import io.vavr.Tuple2;
 import io.vavr.collection.List;
 import io.vavr.collection.Queue;
-import io.vavr.control.Option;
 
 public class Test3 {
 
@@ -162,7 +158,7 @@ public class Test3 {
 
 
         String[] t = log.split("\n");
-        io.vavr.collection.List<String> log1 = io.vavr.collection.List.of(t);
+        List<String> log1 = List.of(t);
 
         List<String> log2 = log1.filter(x -> x.contains("CONSOLE"));
         System.out.println(log2);

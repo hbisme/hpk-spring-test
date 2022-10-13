@@ -1,49 +1,40 @@
-package vavr;
+package com.hb.vavr;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.UUID;
 
 import io.vavr.Function0;
 import io.vavr.Function1;
 import io.vavr.Function2;
 import io.vavr.Function3;
 import io.vavr.Function4;
-import io.vavr.Lazy;
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
-import io.vavr.Value;
 import io.vavr.collection.Array;
 import io.vavr.collection.List;
 import io.vavr.collection.Map;
-import io.vavr.collection.Stream;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
 import lombok.val;
-import lombok.var;
 
 import static io.vavr.API.$;
-import static io.vavr.Predicates.*; // instanceOf
 import static io.vavr.API.Case;
 import static io.vavr.API.Match;
 
 
-public class Test1 {
+/**
+ * 基础测试
+ */
+public class BaseTest1 {
 
     @Test
     public void test1() {
         Number sum = List.of(1, 2, 3).sum();
         System.out.println(sum.intValue());
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_YEAR, -2);
-        System.out.println(calendar.getTime());
     }
 
     /**
@@ -101,15 +92,6 @@ public class Test1 {
         Function1<Integer, Integer> multiplyByTwo = a -> a * 2;
         Function1<Integer, Integer> add1AndMultiplyBy2 = plusOne.andThen(multiplyByTwo);
         Assert.assertEquals(6, add1AndMultiplyBy2.apply(2).intValue());
-    }
-
-
-    @Test
-    public void testTry() {
-        Try<Integer> computation = Try.of(() -> 1 / 0);
-
-        int errorSentinel = computation.getOrElse(-1);
-        Assert.assertEquals(-1, errorSentinel);
     }
 
 
