@@ -1,11 +1,11 @@
-package quarz;
+package com.hb.quarz;
 
+import org.junit.jupiter.api.Test;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
@@ -16,7 +16,9 @@ import java.util.Date;
  * 简单的crontab定时执行任务
  */
 public class MyScheduler2 {
-    public static void main(String[] args) throws SchedulerException, InterruptedException {
+
+    @Test
+    public void test1() throws SchedulerException {
 
         // 1. 创建调度器Scheduler
         StdSchedulerFactory schedulerFactory = new StdSchedulerFactory();

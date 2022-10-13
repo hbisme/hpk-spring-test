@@ -1,4 +1,4 @@
-package quarz;
+package com.hb.quarz;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -6,7 +6,6 @@ import org.quartz.JobExecutionException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 public class PrintWordsJob implements Job {
 

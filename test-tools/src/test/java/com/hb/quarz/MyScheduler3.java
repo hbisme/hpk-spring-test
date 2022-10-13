@@ -1,12 +1,12 @@
-package quarz;
+package com.hb.quarz;
 
+import org.junit.jupiter.api.Test;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.JobKey;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
@@ -19,8 +19,9 @@ import java.util.List;
  * 获取有哪些定时调度.
  */
 public class MyScheduler3 {
-    public static void main(String[] args) throws SchedulerException, InterruptedException {
 
+    @Test
+    public void test1() throws SchedulerException, InterruptedException {
         // 1. 创建调度器Scheduler
         StdSchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Scheduler scheduler = schedulerFactory.getScheduler();

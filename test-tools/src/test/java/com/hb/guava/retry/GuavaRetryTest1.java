@@ -1,17 +1,9 @@
-package com.hb;
-
-// import com.github.rholder.retry.Attempt;
-// import com.github.rholder.retry.RetryListener;
-// import com.github.rholder.retry.Retryer;
-// import com.github.rholder.retry.RetryerBuilder;
-// import com.github.rholder.retry.StopStrategies;
-// import com.github.rholder.retry.WaitStrategies;
+package com.hb.guava.retry;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.Test;
-import org.springframework.remoting.RemoteAccessException;
 
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 import io.github.itning.retry.Attempt;
@@ -20,7 +12,6 @@ import io.github.itning.retry.RetryerBuilder;
 import io.github.itning.retry.listener.RetryListener;
 import io.github.itning.retry.strategy.stop.StopStrategies;
 import io.github.itning.retry.strategy.wait.WaitStrategies;
-import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -30,13 +21,13 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2022年09月14日 10:39
  */
 @Slf4j
-public class GuavaRetryTest {
+public class GuavaRetryTest1 {
     @Test
     public void simpleTest1() {
 
         // RetryerBuilder 构建重试实例 retryer,可以设置重试源且可以支持多个重试源，可以配置重试次数或重试超时时间，以及可以配置等待时间间隔
         Retryer<Boolean> retryer = RetryerBuilder.<Boolean>newBuilder()
-                .retryIfExceptionOfType(RemoteAccessException.class) //设置异常重试源
+                .retryIfExceptionOfType(RuntimeException.class) //设置异常重试源
                 .retryIfResult(res -> res == false)  //设置根据结果重试
                 .withWaitStrategy(WaitStrategies.fixedWait(3, TimeUnit.SECONDS))   //设置等待间隔时间
                 .withStopStrategy(StopStrategies.stopAfterAttempt(3))  //设置最大重试次数
@@ -68,7 +59,7 @@ public class GuavaRetryTest {
     public static boolean retryTask(String param) {
         log.info("收到请求参数:{}", param);
 
-        int i = RandomUtils.nextInt(0, 11);
+        int i = RandomUtils.nextInt(0, 4);
         log.info("随机生成的数:{}", i);
         if (i == 0) {
             log.warn("为0,抛出参数异常.");
@@ -82,7 +73,7 @@ public class GuavaRetryTest {
         } else {
             //为其他
             log.warn("大于2,抛出自定义异常.");
-            throw new RemoteAccessException("大于2,抛出远程访问异常");
+            throw new RuntimeException("大于2,抛出远程访问异常");
         }
     }
 

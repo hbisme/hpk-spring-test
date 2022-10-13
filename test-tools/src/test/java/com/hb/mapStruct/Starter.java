@@ -1,4 +1,8 @@
-package BeanUtilsTest.mapStruct;
+package com.hb.mapStruct;
+
+import com.hb.mapStruct.mapper.OrderMapper;
+import com.hb.mapStruct.pojo.Order;
+import com.hb.mapStruct.pojo.OrderQueryParam;
 
 import org.junit.Test;
 import org.mapstruct.factory.Mappers;

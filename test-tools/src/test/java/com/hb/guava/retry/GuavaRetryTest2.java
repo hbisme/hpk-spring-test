@@ -1,23 +1,15 @@
-package com.hb;
-
-// import com.github.rholder.retry.Retryer;
-// import com.github.rholder.retry.RetryerBuilder;
-// import com.github.rholder.retry.StopStrategies;
-// import com.github.rholder.retry.WaitStrategies;
-
-import io.github.itning.retry.Retryer;
-import io.github.itning.retry.RetryerBuilder;
-import io.github.itning.retry.strategy.limit.AttemptTimeLimiters;
-import io.github.itning.retry.strategy.stop.StopStrategies;
-import io.github.itning.retry.strategy.wait.WaitStrategies;
+package com.hb.guava.retry;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.Test;
-import org.springframework.remoting.RemoteAccessException;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.github.itning.retry.Retryer;
+import io.github.itning.retry.RetryerBuilder;
+import io.github.itning.retry.strategy.stop.StopStrategies;
+import io.github.itning.retry.strategy.wait.WaitStrategies;
 import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,13 +26,6 @@ public class GuavaRetryTest2 {
 
     @Test
     public void RetryWithTryTest() {
-        Retryer<List<Integer>> retryer = RetryerBuilder.<List<Integer>>newBuilder()
-                .retryIfException()
-                .withWaitStrategy(WaitStrategies.fixedWait(2, TimeUnit.SECONDS))   //设置等待间隔时间
-                .withStopStrategy(StopStrategies.stopAfterAttempt(3))  //设置最大重试次数
-                .build();
-
-
         io.vavr.collection.List<Integer> range = io.vavr.collection.List.range(1, 10);
 
         List<List<Integer>> list = range.map(x -> getPageResult(x)).toJavaList();
@@ -51,6 +36,7 @@ public class GuavaRetryTest2 {
 
 
     public List<Integer> getPageResult(Integer pageId) {
+
         Retryer<List<Integer>> retryer = RetryerBuilder.<List<Integer>>newBuilder()
                 .retryIfException()
                 .withWaitStrategy(WaitStrategies.fixedWait(3, TimeUnit.SECONDS))   //设置等待间隔时间
@@ -79,7 +65,7 @@ public class GuavaRetryTest2 {
         System.out.println();
         log.info("收到请求参数pagId: {}", pageId);
 
-        int i = RandomUtils.nextInt(0, 6);
+        int i = RandomUtils.nextInt(0, 3);
         log.info("随机生成的数:{}", i);
 
         if (i == 0) {
@@ -94,7 +80,7 @@ public class GuavaRetryTest2 {
         } else {
             //为其他
             log.warn("大于2,抛出自定义异常.");
-            throw new RemoteAccessException("大于2,抛出远程访问异常");
+            throw new RuntimeException("大于2,抛出远程访问异常");
         }
 
     }

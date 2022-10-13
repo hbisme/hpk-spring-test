@@ -1,21 +1,10 @@
-package com.hb;
+package com.hb.guava.retry;
 
-// import com.github.rholder.retry.Attempt;
-// import com.github.rholder.retry.AttemptTimeLimiter;
-// import com.github.rholder.retry.AttemptTimeLimiters;
-// import com.github.rholder.retry.RetryListener;
-// import com.github.rholder.retry.Retryer;
-// import com.github.rholder.retry.RetryerBuilder;
-// import com.github.rholder.retry.StopStrategies;
-// import com.github.rholder.retry.WaitStrategies;
+
 
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.Test;
-import org.springframework.remoting.RemoteAccessException;
 
-import com.google.common.util.concurrent.SimpleTimeLimiter;
-
-import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -101,7 +90,7 @@ public class GuavaRetryTest3 {
         } else {
             //为其他
             log.warn("大于2,抛出自定义异常.");
-            throw new RemoteAccessException("大于2,抛出远程访问异常");
+            throw new RuntimeException("大于2,抛出远程访问异常");
         }
     }
 

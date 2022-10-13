@@ -1,5 +1,7 @@
-package lombok;
+package com.hb.lombok;
 
+import lombok.Data;
+import lombok.NonNull;
 import lombok.experimental.Accessors;
 
 /**

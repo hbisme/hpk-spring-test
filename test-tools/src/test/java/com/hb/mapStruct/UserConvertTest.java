@@ -1,9 +1,12 @@
-package com.hb.service;
+package com.hb.mapStruct;
 
-import com.hb.bo.UserBo;
-import com.hb.dto.UserDto;
-import com.hb.utils.UserConvert;
-import com.hb.vo.UserVo;
+
+
+import com.hb.mapStruct.mapper.UserConvert;
+import com.hb.mapStruct.pojo.UserBo;
+import com.hb.mapStruct.pojo.UserDto;
+import com.hb.mapStruct.pojo.UserVo;
+
 
 import org.junit.Test;
 

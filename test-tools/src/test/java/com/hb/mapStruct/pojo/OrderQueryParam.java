@@ -1,4 +1,4 @@
-package BeanUtilsTest.mapStruct;
+package com.hb.mapStruct.pojo;
 
 public class OrderQueryParam {
 
