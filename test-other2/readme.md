@@ -4,10 +4,6 @@
 
 2. MyBatis-Plus 使用示例
 
-
-3. MapStruct-bean转换使用示例
-参考: https://www.iocoder.cn/Spring-Boot/MapStruct/?yudao
-
 4. sa-token  认证和授权使用示例 
 参考: https://sa-token.dev33.cn/doc/index.html#/use/route-check
 

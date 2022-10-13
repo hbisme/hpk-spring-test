@@ -65,23 +65,6 @@
             <version>2.3.5.3</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.jgrapht</groupId>
-            <artifactId>jgrapht-core</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jgrapht</groupId>
-            <artifactId>jgrapht-ext</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.itning</groupId>
-            <artifactId>guava-retrying3</artifactId>
-            <version>3.0.1</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
