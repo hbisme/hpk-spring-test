@@ -28,7 +28,7 @@ public class TryTest {
 
     @Test
     public void testTry() {
-        Try<Integer> computation = Try.of(() -> 1 / 0);
+        Try<Integer> computation = Try(() -> 1 / 0);
         int errorSentinel = computation.getOrElse(-1);
         Assert.assertEquals(-1, errorSentinel);
     }

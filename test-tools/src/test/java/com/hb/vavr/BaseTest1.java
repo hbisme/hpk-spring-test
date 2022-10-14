@@ -1,5 +1,7 @@
 package com.hb.vavr;
 
+import com.hb.vavr.pojo.User;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -110,23 +112,6 @@ public class BaseTest1 {
         System.out.println(t.getOrElse(new User(-1, "None")));
     }
 
-    @Test
-    public void group() {
-        ArrayList<User> list = new ArrayList();
-        list.add(new User(1, "hb1"));
-        list.add(new User(1, "hb2"));
-        list.add(new User(3, "hb3"));
-
-        final List<User> of = List.of(
-                new User(1, "hb1"),
-                new User(2, "hb2"),
-                new User(3, "hb3"));
-
-        val tuple2s = of.groupBy(x -> x.getId());
-        System.out.println(tuple2s);
-    }
-
-
     /**
      * Java8的函数式接口最多有两个参数，Vavr最多可有8个参数
      */
@@ -149,6 +134,10 @@ public class BaseTest1 {
      */
     @Test
     public void testArrayToMap() {
+        int[] a = new int[]{1, 2};
+        Array<Integer> integers = Array.ofAll(a);
+        System.out.println(integers);
+
         Array<String> arr = Array.of("a:1", "b:2", "c:3", "c:4", "e");
         Array<Tuple2<String, String>> tt = arr.map(x -> x.split(":")).filter(x -> x.length == 2)
                 .map(x -> {
@@ -158,15 +147,6 @@ public class BaseTest1 {
 
         Map<String, String> m = tt.toMap(x -> x._1, x -> x._2);
         System.out.println(m);
-    }
-
-    /**
-     * 生成List的数字序列
-     */
-    @Test
-    public void testRange() {
-        List<Integer> list = List.range(1, 10);
-        System.out.println(list);
     }
 
 
@@ -289,40 +269,6 @@ public class BaseTest1 {
         System.out.println(randomValue2);
     }
 
-
-    class User {
-        private int id;
-        private String name;
-
-        public User(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return "User{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    '}';
-        }
-    }
 
     private static Either<String, Integer> computeWithEither(int marks) {
         if (marks < 85) {

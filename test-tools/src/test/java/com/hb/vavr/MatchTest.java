@@ -39,6 +39,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Log
 public class MatchTest {
 
+    /**
+     * 特定值匹配模式
+     */
     @Test
     public void test1() {
         Integer i = 2;
