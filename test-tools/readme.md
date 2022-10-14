@@ -8,4 +8,9 @@
 6. jGrapht  java的内存图数据库测试
 7. lombok测试
 8. quarz定时调度测试
-9. 
+9. hutool工具类测试 
+    文件操作类
+    UUID类
+    验证类(手机,email,名称验证)
+    图像验证码工具
+    二维码网址工具
