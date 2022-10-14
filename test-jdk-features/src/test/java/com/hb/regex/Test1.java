@@ -1,4 +1,4 @@
-package regex;
+package com.hb.regex;
 
 import org.junit.Test;
 

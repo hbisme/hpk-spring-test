@@ -1,4 +1,4 @@
-package processBuilder;
+package com.hb.processBuilder;
 
 import org.junit.Test;
 
@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
 
 /**
  * 测试java运行 shell脚本. 会从标准输出中一直得到输出.不会一直阻塞到子进程结束才会获得输出.

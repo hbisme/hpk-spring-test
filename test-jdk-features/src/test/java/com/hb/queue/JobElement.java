@@ -1,4 +1,4 @@
-package queue;
+package com.hb.queue;
 
 public class JobElement {
 

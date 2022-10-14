@@ -1,4 +1,4 @@
-package queue;
+package com.hb.queue;
 
 import org.junit.Test;
 

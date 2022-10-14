@@ -1,17 +1,16 @@
-package ThreadPoolExecutor;
+package com.hb.ThreadPoolExecutorTest;
 
 import com.alibaba.fastjson.JSON;
+import com.hb.queue.JobElement;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.PriorityBlockingQueue;
 
-import queue.JobElement;
 
 public class PriorityBlockingQueueTest {
     PriorityBlockingQueue<JobElement> queue;

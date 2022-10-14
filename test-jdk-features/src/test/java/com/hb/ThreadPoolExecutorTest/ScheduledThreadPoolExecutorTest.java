@@ -1,4 +1,4 @@
-package ThreadPoolExecutorTest;
+package com.hb.ThreadPoolExecutorTest;
 
 import org.junit.Before;
 import org.junit.Test;

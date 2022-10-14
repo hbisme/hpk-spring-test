@@ -1,4 +1,4 @@
-package ThreadPoolExecutorTest;
+package com.hb.ThreadPoolExecutor;
 
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,7 +17,7 @@ public class ThreadPoolExecutorTest {
         count++;
     }
 
-    public static synchronized void delCount() {
+    public static synchronized void reduceCount() {
         count--;
     }
 
@@ -44,7 +44,6 @@ public class ThreadPoolExecutorTest {
         }
 
         System.in.read();
-
     }
 
 
@@ -88,8 +87,8 @@ public class ThreadPoolExecutorTest {
 
             System.out.println(this.toString() + " is running!, count: " + count);
             try {
-                java.lang.Thread.sleep(10000);
-                delCount();
+                Thread.sleep(5000);
+                reduceCount();
                 System.out.println(this.toString() + "is ending!, count: " + count);
             } catch (InterruptedException e) {
                 e.printStackTrace();

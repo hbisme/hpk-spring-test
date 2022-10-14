@@ -1,10 +1,9 @@
-package queue;
+package com.hb.queue;
 
 import org.junit.Test;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.stream.Collectors;
 
 public class LinkedBlockingQueueTest {
 

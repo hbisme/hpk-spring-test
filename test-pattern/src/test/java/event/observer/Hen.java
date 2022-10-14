@@ -1,9 +1,12 @@
 package event.observer;
 
 
+import lombok.Data;
+
 /**
  * 母鸡(观察者)
  */
+@Data
 public class Hen {
     private String name;
     private Eagle eagle;

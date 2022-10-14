@@ -1,4 +1,4 @@
-package queue;
+package com.hb.queue;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;

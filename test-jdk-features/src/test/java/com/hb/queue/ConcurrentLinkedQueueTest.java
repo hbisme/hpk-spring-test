@@ -1,4 +1,4 @@
-package queue;
+package com.hb.queue;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;

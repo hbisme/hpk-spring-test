@@ -1,4 +1,4 @@
-package ThreadPoolExecutor;
+package com.hb.ThreadPoolExecutor;
 
 import org.junit.Test;
 
@@ -7,11 +7,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 如果向Executor提交了一组计算任务，并且希望在计算完成后获得结果，那么可以保留与每个任务关联的Future，然后反复使用get方法，
