@@ -1,0 +1,31 @@
+package priv.hb.sample.tool.vavr.pojo;
+
+/**
+ * @author hubin
+ * @date 2022年08月29日 16:51
+ */
+public class Employee {
+    private String name;
+    private String id;
+
+    public Employee(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+}
