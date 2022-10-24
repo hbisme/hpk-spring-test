@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hb.dao.mapper.TRedpillTagMapper">
+<mapper namespace="priv.hb.sample.dao.mapper.TRedpillTagMapper">
     <sql id="FIELDS">
         id,name,count,type,create_time,is_deleted
     </sql>
 
-    <select id="selectByIds" resultType="com.hb.dao.entity.TRedpillTagDO">
+    <select id="selectByIds" resultType="priv.hb.sample.dao.entity.TRedpillTagDO">
         SELECT
             <include refid="FIELDS"/>
         FROM t_redpill_tag

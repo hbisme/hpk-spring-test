@@ -1,0 +1,113 @@
+create external table if not exists rtdw_mid.ods_crm_visit_history_json (
+  id bigint,
+  shop_id string,
+  mysql_optype string comment '操作类型标记，删除delete'
+) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe' STORED AS TEXTFILE LOCATION '/rt_data/mysql_canal_json/crm/ods_crm_visit_history_json_0'
+
+||
+||rtdw_mid.ods_crm_visit_history_json
+||
+&&
+
+create table if not exists st_abtest_search_long_tail_report_d(
+  exp_code string comment '实验编号',
+  bucket_type int comment '分桶类型'
+) comment '搜索大长尾AB测试报表' partitioned by (dayid string) stored as orc
+
+||
+||st_abtest_search_long_tail_report_d
+||
+&&
+
+create view if not exists rtdw.ods_vf_crm_visit_history as
+select
+  t2.*
+from (
+    select
+      *,
+      ROW_NUMBER() OVER (
+        PARTITION BY id
+        ORDER BY
+          kafka_offset DESC
+      ) rn
+    from
+      (
+        select
+          *
+        from
+          rtdw_mid.ods_crm_visit_history_offline
+        union all
+        select
+          *
+        from
+          rtdw_mid.ods_crm_visit_history_json
+      ) t1
+  ) t2
+where
+  t2.rn = 1
+  and t2.mysql_optype != 'DELETE';
+
+  ||
+  ||
+  ||rtdw.ods_vf_crm_visit_history
+&&
+
+
+create view if not exists rtdw.ods_v_crm_visit_history As
+select id,
+       shop_id,
+       visit_type,
+       visit_time,
+       visit_aims,
+       visit_result,
+       shop_problem,
+       solution,
+       other,
+       is_deleted,
+       create_time,
+       edit_time,
+       creator,
+       editor,
+       pic_url,
+       distance,
+       position,
+       longitude,
+       latitude,
+       cooperate_type,
+       visit_name,
+       visit_phone,
+       visit_mode,
+       shop_pro_id,
+       shop_city_id,
+       shop_area_id,
+       b_mature_level,
+       visit_status,
+       plan_id,
+       with_flag,
+       with_user_id,
+       shop_street_id,
+       conversation_code,
+       visit_aims_type,
+       front_photo,
+       inner_photo,
+       poster,
+       screenshot,
+       other_photo,
+       subject_ids,
+       verify_status,
+       visit_record_id
+FROM (SELECT *,
+             ROW_NUMBER(
+                 ) OVER (PARTITION BY id ORDER BY kafka_offset DESC
+                 ) as rn
+      FROM rtdw_mid.ods_crm_visit_history_json
+     ) t
+where t.rn = 1
+  and mysql_optype != 'DELETE';
+
+||
+||rtdw.ods_v_crm_visit_history
+||
+
+
+

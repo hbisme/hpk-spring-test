@@ -1,22 +1,13 @@
 package utils;
 
-import com.hb.dto.JobDto;
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
-import lombok.val;
-import lombok.var;
 
 
 /**

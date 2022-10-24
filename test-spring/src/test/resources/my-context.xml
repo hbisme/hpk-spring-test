@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="hb.user" class="com.hb.dto.User">
+    <bean id="hb.user" class="priv.hb.sample.dto.User">
         <property name="name" value="hb"></property>
     </bean>
 

@@ -6,7 +6,7 @@
     <properties resource="mysqldbconfig.properties"/>
 
     <typeAliases>
-        <typeAlias type="com.test.mybatis.utils.DruidDataSourceFactory" alias="DRUID" />
+        <typeAlias type="priv.hb.sample.test.mybatis.utils.DruidDataSourceFactory" alias="DRUID" />
     </typeAliases>
 
     <environments default="development">

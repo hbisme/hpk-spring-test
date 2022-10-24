@@ -1,17 +1,13 @@
-import com.test.mybatis.dao.entity.TRedpillTag;
-import com.test.mybatis.dao.mappers.TRedpillTagMapper;
+import priv.hb.sample.test.mybatis.dao.entity.TRedpillTag;
+import priv.hb.sample.test.mybatis.dao.mappers.TRedpillTagMapper;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
-import static com.test.mybatis.utils.MyBatisUtil.getSession;
+import static priv.hb.sample.test.mybatis.utils.MyBatisUtil.getSession;
 
 /**
  * @author hubin

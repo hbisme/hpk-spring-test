@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/task/spring-task-3.1.xsd">
 
 
-    <bean id="MqConsumer" class="com.hb.comsumer.MqConsumer"/>
+    <bean id="MqConsumer" class="priv.hb.sample.comsumer.MqConsumer"/>
 
     <bean id="mqClient" class="com.yt.asd.common.mq.MqAutoConfigure">
         <!--环境test，pre， prod，不能填错 -->

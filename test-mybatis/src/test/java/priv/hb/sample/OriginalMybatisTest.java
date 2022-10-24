@@ -1,0 +1,124 @@
+package priv.hb.sample;
+
+import com.github.pagehelper.Page;
+
+import priv.hb.sample.dao.entity.StreamingJobDO;
+import priv.hb.sample.service.StreamJobQueryService;
+import priv.hb.sample.dao.mappers.StreamJobMapper;
+import priv.hb.sample.dao.query.StreamJobDalQuery;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.github.pagehelper.PageHelper;
+import com.yt.asd.kit.domain.RpcResult;
+
+import java.util.List;
+
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class OriginalMybatisTest {
+    @Autowired
+    StreamJobMapper streamJobMapper;
+
+    @Autowired
+    StreamJobQueryService streamJobQueryService;
+
+    @Test
+    public void TestMappersSelect() {
+        System.out.println("测试主键读取的Mappers");
+        StreamingJobDO res = streamJobMapper.selectByPrimaryKey(60L);
+        System.out.println(res);
+    }
+
+    @Test
+    public void TestSelectByJobParam() {
+        System.out.println("测试 类型和名称的Mappers 对应的sql");
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        List<StreamingJobDO> res = streamJobMapper.selectByJobParam(streamJobDalQuery);
+        System.out.println("length: " + res.size());
+        System.out.println(res);
+    }
+
+    /**
+     * 测试动态SQL choose(if/else)
+     */
+    @Test
+    public void testChoose() {
+        System.out.println("测试 动态SQL choose(if/else)");
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        List<StreamingJobDO> res = streamJobMapper.testChoose(streamJobDalQuery);
+        System.out.println("length: " + res.size());
+        System.out.println(res);
+
+    }
+
+    /**
+     * 测试动态SQL foreach
+     */
+    @Test
+    public void testForeach() {
+        System.out.println("测试动态SQL foreach");
+        StreamingJobDO streamingJobDO1 = new StreamingJobDO();
+        streamingJobDO1.setName("sven_test@hb_test_33");
+        StreamingJobDO streamingJobDO2 = new StreamingJobDO();
+        streamingJobDO2.setName("sven_test@hb_test_34");
+
+        List<StreamingJobDO> jobList = io.vavr.collection.List.of(streamingJobDO1, streamingJobDO2).toJavaList();
+        List<StreamingJobDO> res = streamJobMapper.testForeach(jobList);
+        System.out.println("length: " + res.size());
+        System.out.println(res);
+
+    }
+
+    /**
+     * 分页插件使用, 使用 pagehelper-spring-boot-starter, 使用默认配置
+     * 起始页从1开始计数.
+     */
+    @Test
+    public void testPageHelper() {
+        PageHelper.startPage(2, 2, true);
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        Page<StreamingJobDO> page = streamJobMapper.pageSelectByJobParam(streamJobDalQuery);
+        List<StreamingJobDO> res = page.getResult();
+        System.out.println("res: " + res);
+    }
+
+    /**
+     * 分页插件使用, 使用 pagehelper-spring-boot-starter, 使用默认配置
+     */
+    @Test
+    public void testPageHelper2() {
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        Page<StreamingJobDO> page = streamJobQueryService.pageSelectByJobParam(streamJobDalQuery);
+        List<StreamingJobDO> res = page.getResult();
+        System.out.println(res);
+    }
+
+    /**
+     * 分页对象后,赋值给包装对象
+     */
+    @Test
+    public void testPageHelper3() {
+        StreamJobDalQuery streamJobDalQuery = new StreamJobDalQuery();
+        streamJobDalQuery.setType(1);
+        Page<StreamingJobDO> page = streamJobQueryService.pageSelectByJobParam(streamJobDalQuery);
+        List<StreamingJobDO> list = page.getResult();
+        System.out.println(list);
+
+        RpcResult<List<StreamingJobDO>> result = new RpcResult<>();
+        result.setData(list);
+        result.setTotalCount(Long.valueOf(list.size()));
+        System.out.println(result.getData());
+        // System.out.println(result);
+    }
+
+
+}

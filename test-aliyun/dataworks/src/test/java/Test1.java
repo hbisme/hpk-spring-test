@@ -1,28 +1,26 @@
 import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.dataworks_public20200518.models.ListDeploymentsResponseBody;
-import com.hb.api.GetDeployment;
-import com.hb.api.ListDeployments;
-import com.hb.utils.Common;
-import com.hb.api.CreateFile;
-import com.hb.api.DeleteFile;
-import com.hb.api.DeployFile;
-import com.hb.api.ListFiles;
-import com.hb.api.SubmitFile;
-import com.hb.api.UpdateFile;
-import com.hb.argument.CreateFileInputArgs;
-import com.hb.argument.DeployFileInputArgs;
-import com.hb.argument.ListFilesInputArgs;
-import com.hb.argument.ListFilesOutputArgs;
-import com.hb.argument.SubmitFileInputArgs;
-import com.hb.argument.UpdateFileInputArgs;
+import priv.hb.sample.api.GetDeployment;
+import priv.hb.sample.api.ListDeployments;
+import priv.hb.sample.utils.Common;
+import priv.hb.sample.api.CreateFile;
+import priv.hb.sample.api.DeleteFile;
+import priv.hb.sample.api.DeployFile;
+import priv.hb.sample.api.ListFiles;
+import priv.hb.sample.api.SubmitFile;
+import priv.hb.sample.api.UpdateFile;
+import priv.hb.sample.argument.CreateFileInputArgs;
+import priv.hb.sample.argument.DeployFileInputArgs;
+import priv.hb.sample.argument.ListFilesInputArgs;
+import priv.hb.sample.argument.ListFilesOutputArgs;
+import priv.hb.sample.argument.SubmitFileInputArgs;
+import priv.hb.sample.argument.UpdateFileInputArgs;
 
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import io.vavr.control.Try;
 
 /**
  * @author hubin

@@ -33,6 +33,7 @@
         <module>test-sqlParser</module>
         <module>test-spring</module>
         <module>test-jdk-features</module>
+        <module>test-WebMagic</module>
 
     </modules>
 
