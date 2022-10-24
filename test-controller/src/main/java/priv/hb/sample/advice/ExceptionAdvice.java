@@ -1,9 +1,9 @@
-package com.hb.advice;
+package priv.hb.sample.advice;
 
-import com.hb.common.Result;
-import com.hb.common.ResultEnum;
-import com.hb.exception.BusinessException;
-import com.hb.exception.ForbiddenException;
+import priv.hb.sample.common.Result;
+import priv.hb.sample.common.ResultEnum;
+import priv.hb.sample.exception.BusinessException;
+import priv.hb.sample.exception.ForbiddenException;
 
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;

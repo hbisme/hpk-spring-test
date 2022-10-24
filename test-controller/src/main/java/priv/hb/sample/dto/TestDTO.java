@@ -1,4 +1,4 @@
-package com.hb.dto;
+package priv.hb.sample.dto;
 
 import lombok.Data;
 

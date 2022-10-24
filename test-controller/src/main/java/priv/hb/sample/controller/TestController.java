@@ -1,7 +1,7 @@
-package com.hb.controller;
+package priv.hb.sample.controller;
 
-import com.hb.dto.TestDTO;
-import com.hb.service.TestService;
+import priv.hb.sample.dto.TestDTO;
+import priv.hb.sample.service.TestService;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;

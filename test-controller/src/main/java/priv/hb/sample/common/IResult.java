@@ -1,4 +1,4 @@
-package com.hb.common;
+package priv.hb.sample.common;
 
 /**
  * 定义统一的返回数据结构

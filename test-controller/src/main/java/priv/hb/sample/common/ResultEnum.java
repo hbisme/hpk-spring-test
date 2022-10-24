@@ -1,4 +1,4 @@
-package com.hb.common;
+package priv.hb.sample.common;
 
 public enum ResultEnum implements IResult{
     SUCCESS(2001, "接口调用成功"),

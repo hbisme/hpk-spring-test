@@ -1,4 +1,4 @@
-package com.hb.dto;
+package priv.hb.sample.dto;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;

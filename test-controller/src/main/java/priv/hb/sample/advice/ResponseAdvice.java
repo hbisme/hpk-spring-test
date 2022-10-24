@@ -1,6 +1,6 @@
-package com.hb.advice;
+package priv.hb.sample.advice;
 
-import com.hb.common.Result;
+import priv.hb.sample.common.Result;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

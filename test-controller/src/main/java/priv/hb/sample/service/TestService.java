@@ -1,6 +1,6 @@
-package com.hb.service;
+package priv.hb.sample.service;
 
-import com.hb.dto.TestDTO;
+import priv.hb.sample.dto.TestDTO;
 
 import org.springframework.stereotype.Service;
 

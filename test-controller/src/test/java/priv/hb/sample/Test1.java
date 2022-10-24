@@ -1,6 +1,6 @@
-package com.hb;
+package priv.hb.sample;
 
-import com.hb.dto.TestDTO2;
+import priv.hb.sample.dto.TestDTO2;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.hb.exception;
+package priv.hb.sample.exception;
 
 /**
  * 自定义异常
