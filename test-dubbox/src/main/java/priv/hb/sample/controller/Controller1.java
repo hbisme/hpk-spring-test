@@ -1,7 +1,10 @@
 package priv.hb.sample.controller;
 
+import java.util.List;
+
 import priv.hb.sample.service.UserService;
 
+import com.yangt.ucenter.vo.dataaccess.DataAccessListVO;
 import com.yt.ustone.domain.ResultData;
 import com.yt.ustone.domain.to.BasicUserCacheTO;
 
@@ -25,6 +28,10 @@ public class Controller1 {
         return "hello1";
     }
 
+    /**
+     * 可能被限制了查不到数据
+     * @return
+     */
     @GetMapping("/hello2")
     public ResultData<BasicUserCacheTO> hello2() {
         ResultData<BasicUserCacheTO> res = userService.test1();
@@ -32,8 +39,8 @@ public class Controller1 {
     }
 
     @GetMapping("/hello3")
-    public String hello3() {
-        return userService.testStatic0();
+    public List<DataAccessListVO> hello3() {
+        return userService.testUcenter();
     }
 
 

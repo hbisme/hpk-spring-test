@@ -6,9 +6,19 @@ dubbo:
   cache.file: /tmp/hirac-dubbo-registry.cache
   cache.metaFile: /tmp/hirac-dubbo-registry-meta.cache
   port: 28899
+  application:
+    logger: sl4j
 
 dubbo.gw.register.group: master
 
 ustone:
   dubbo:
     group: master
+
+ucenter:
+  env: master
+  dubbo.group: master
+
+octopus:
+  env: master
+  dubbo.group: master

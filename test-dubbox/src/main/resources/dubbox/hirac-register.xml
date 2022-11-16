@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://code.alibabatech.com/schema/dubbo
-        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
-        ">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    
     <!--&lt;!&ndash; dubbo配置_当前应用名，不能带"." &ndash;&gt;-->
     <dubbo:application name="${dubbo.appName}" owner="${dubbo.appOwner}" logger="slf4j"/>
 

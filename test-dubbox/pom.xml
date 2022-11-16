@@ -12,7 +12,7 @@
     <artifactId>test-dubbox</artifactId>
 
     <properties>
-        <dubbo.version>2.8.5.dev-SNAPSHOT</dubbo.version>
+        <dubbo.version>2.7.4.1</dubbo.version>
     </properties>
 
     <dependencies>
@@ -29,7 +29,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
@@ -38,8 +38,77 @@
             <groupId>com.yangt.ustone</groupId>
             <artifactId>ustone-api</artifactId>
             <version>2.6.2</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>yt-dubbo-bom</artifactId>
+                    <groupId>com.yangt</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>com.yangt.ucenter</groupId>
+            <artifactId>ucenter-api</artifactId>
+            <version>2.0.9</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>ytasd-redis</artifactId>
+                    <groupId>com.yangt.asd</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-lang3</artifactId>
+                    <groupId>org.apache.commons</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yangt</groupId>
+            <artifactId>octopus-client</artifactId>
+            <version>2.2.3-RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.yangt.asd</groupId>
+                    <artifactId>ytasd-kit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>springfox-swagger2</artifactId>
+                    <groupId>io.springfox</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.yangt.asd</groupId>
+                    <artifactId>ytasd-common</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-hateoas</artifactId>
+                    <groupId>org.springframework.hateoas</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+
+
+        <!--  dubbo服务化测试工具      /-->
+        <dependency>
+            <groupId>com.yangt.devkit</groupId>
+            <artifactId>dubbo-kit</artifactId>
+            <version>1.0.7</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

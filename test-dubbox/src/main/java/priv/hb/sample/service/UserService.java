@@ -1,5 +1,8 @@
 package priv.hb.sample.service;
 
+import java.util.List;
+
+import com.yangt.ucenter.vo.dataaccess.DataAccessListVO;
 import com.yt.ustone.domain.ResultData;
 import com.yt.ustone.domain.to.BasicUserCacheTO;
 
@@ -9,5 +12,5 @@ public interface UserService {
     ResultData<BasicUserCacheTO> test1();
 
 
-    String testStatic0();
+    List<DataAccessListVO> testUcenter();
 }
