@@ -1,5 +1,8 @@
 import com.aliyun.dataworks_public20200518.Client;
 import com.aliyun.dataworks_public20200518.models.ListDeploymentsResponseBody;
+
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import priv.hb.sample.api.GetDeployment;
 import priv.hb.sample.api.ListDeployments;
 import priv.hb.sample.utils.Common;

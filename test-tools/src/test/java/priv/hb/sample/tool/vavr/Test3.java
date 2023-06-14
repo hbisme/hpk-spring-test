@@ -1,10 +1,14 @@
 package priv.hb.sample.tool.vavr;
 
+import java.util.concurrent.Executors;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import io.vavr.Tuple2;
 import io.vavr.collection.List;
 import io.vavr.collection.Queue;
+import io.vavr.concurrent.Future;
 
 public class Test3 {
 
@@ -196,4 +200,36 @@ public class Test3 {
 
 
     }
+
+    @Test
+    public void testFutureFailure() {
+        final String word = "hello world";
+        io.vavr.concurrent.Future
+                .of(Executors.newFixedThreadPool(1), () -> word)
+                .onFailure(throwable -> Assert.fail("不应该走到 failure 分支"))
+                .onSuccess(result -> Assert.assertEquals(word, result));
+    }
+
+    @Test
+    public void testFutureSuccess() {
+        io.vavr.concurrent.Future
+                .of(Executors.newFixedThreadPool(1), () -> {
+                    throw new RuntimeException();
+                })
+                .onFailure(throwable -> Assert.assertTrue(throwable instanceof RuntimeException))
+                .onSuccess(result -> Assert.fail("不应该走到 success 分支"));
+
+
+        final String word = "hello world";
+        Future<String> of = Future
+                .of(Executors.newFixedThreadPool(1), () -> word);
+
+
+
+    }
+
+
+
+
+
 }

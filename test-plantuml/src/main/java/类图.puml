@@ -1,0 +1,83 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'泛化(继承) <|--
+class Call {
+    int id
+}
+
+class AudioCall {
+    string name
+}
+
+Call <|-- AudioCall : 继承
+Call <|-- VideoCall : 继承
+
+'-------------------------------
+
+'接口实现  <|..
+interface CallInterface {
+    void callOut()
+}
+
+
+CallInterface <|.. CallImpl : 实现
+
+
+'------------------------------
+
+'依赖 <..
+class Oil {
+}
+
+class Car {
+  addOil(Oil oil)
+}
+
+Oil <.. Car : 依赖
+
+'-------------------------------
+
+'组合 *--
+class Human {
+    Head Head
+    Body body
+}
+
+Human *-- Head : 组合
+Human *-- Body : 组合
+
+'-------------------------------
+
+'聚合 o--
+
+class Human2 {
+    Clothes clother
+}
+
+ Clothes --o Human2: 聚合
+
+'-------------------------------
+
+
+'关联关系
+class MyCar {
+    Driver Driver
+}
+
+class Driver {
+    MyCar MyCar
+}
+MyCar "1"<-->"1" Driver : 关联
+
+
+
+
+
+
+
+
+
+
+
+@enduml

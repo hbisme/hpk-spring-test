@@ -17,6 +17,7 @@ public class Test1 {
 
     ExponentialBackoffRetry retry;
     CuratorFramework client;
+    String testEnvZKAddress = "test-zk1-data-idc.yangtuojia.com:2181";
 
     @Before
     public void init() {
@@ -35,7 +36,7 @@ public class Test1 {
     @Test
     public void testCreateNode() throws Exception {
         CuratorFramework client = CuratorFrameworkFactory.builder()
-                .connectString("test-zk1-data-idc.yangtuojia.com:2181")
+                .connectString(testEnvZKAddress)
                 .connectionTimeoutMs(10000)
                 .sessionTimeoutMs(10000)
                 .retryPolicy(retry)
@@ -61,7 +62,7 @@ public class Test1 {
     @Test
     public void testReadNode() throws Exception {
         CuratorFramework client = CuratorFrameworkFactory.builder()
-                .connectString("test-zk1-data-idc.yangtuojia.com:2181")
+                .connectString(testEnvZKAddress)
                 .connectionTimeoutMs(10000)
                 .sessionTimeoutMs(10000)
                 .retryPolicy(retry)
@@ -86,7 +87,7 @@ public class Test1 {
     @Test
     public void testSetNode() throws Exception {
         CuratorFramework client = CuratorFrameworkFactory.builder()
-                .connectString("test-zk1-data-idc.yangtuojia.com:2181")
+                .connectString(testEnvZKAddress)
                 .connectionTimeoutMs(10000)
                 .sessionTimeoutMs(10000)
                 .retryPolicy(retry)
@@ -107,7 +108,7 @@ public class Test1 {
     @Test
     public void testWatchNode() throws Exception {
         CuratorFramework client = CuratorFrameworkFactory.builder()
-                .connectString("test-zk1-data-idc.yangtuojia.com:2181")
+                .connectString(testEnvZKAddress)
                 .connectionTimeoutMs(10000)
                 .sessionTimeoutMs(10000)
                 .retryPolicy(retry)
