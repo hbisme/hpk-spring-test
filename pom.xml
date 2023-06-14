@@ -34,6 +34,9 @@
         <module>test-spring</module>
         <module>test-jdk-features</module>
         <module>test-WebMagic</module>
+        <module>test-flink</module>
+        <module>test-plantuml</module>
+        <module>test-cola/demo-web</module>
 
     </modules>
 
