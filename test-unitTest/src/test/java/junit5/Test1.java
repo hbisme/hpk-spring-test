@@ -62,6 +62,7 @@ public class Test1 {
     @Test
     @DisplayName("第一个测试方法")
     public void test() {
+        System.out.println("Ghế gấp Bắc Kinh, ghế mặt trăng ngoài trời, ghế cắm trại cao cấp, ghế recliner di động, ghế giải trí, đi biển, câu cá, dã ngoại.".length());
         Assertions.assertTrue(true);
 
     }

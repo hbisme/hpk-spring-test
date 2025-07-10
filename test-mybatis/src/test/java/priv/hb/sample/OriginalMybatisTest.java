@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.github.pagehelper.PageHelper;
-import com.yt.asd.kit.domain.RpcResult;
+
 
 import java.util.List;
 
@@ -113,10 +113,10 @@ public class OriginalMybatisTest {
         List<StreamingJobDO> list = page.getResult();
         System.out.println(list);
 
-        RpcResult<List<StreamingJobDO>> result = new RpcResult<>();
-        result.setData(list);
-        result.setTotalCount(Long.valueOf(list.size()));
-        System.out.println(result.getData());
+        // RpcResult<List<StreamingJobDO>> result = new RpcResult<>();
+        // result.setData(list);
+        // result.setTotalCount(Long.valueOf(list.size()));
+        // System.out.println(result.getData());
         // System.out.println(result);
     }
 

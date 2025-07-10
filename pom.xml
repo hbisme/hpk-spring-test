@@ -37,6 +37,8 @@
         <module>test-flink</module>
         <module>test-plantuml</module>
         <module>test-cola/demo-web</module>
+        <module>test-ddd</module>
+        <module>test-integration</module>
 
     </modules>
 
@@ -59,11 +61,11 @@
         </dependency>
 
         <!--二方库-->
-        <dependency>
-            <groupId>com.yangt.asd</groupId>
-            <artifactId>ytasd-kit</artifactId>
-            <version>1.0.17</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.yangt.asd</groupId>-->
+<!--            <artifactId>ytasd-kit</artifactId>-->
+<!--            <version>1.0.17</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>io.vavr</groupId>

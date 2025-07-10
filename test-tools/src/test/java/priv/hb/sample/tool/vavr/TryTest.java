@@ -20,6 +20,14 @@ import static io.vavr.Predicates.instanceOf;
 /**
  * @author hubin
  * @date 2022年10月13日 10:33
+ *
+ *  Try 处理系统故障（如系统异常、运行时错误等）
+ *  Either 处理业务异常（如输入错误、验证失败等）,这些错误是业务流程中预期的一部分，程序不会抛出异常，而是明确返回一个失败的结果。
+ *
+ *  Try 更适合处理系统故障（如系统或资源异常），它通过捕获异常来处理错误。
+ *  Either 更适合用于表示业务异常，通过 Left 和 Right 来处理业务逻辑中的成功和失败分支。
+ *  这两者的区别在于错误的来源：Try 处理不可控的系统错误，Either 处理业务逻辑中的预期错误。
+ *
  */
 @Log
 public class TryTest {

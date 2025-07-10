@@ -19,20 +19,29 @@ import static org.mockito.Mockito.when;
  * @author hubin
  * @date 2022年08月02日 17:26
  */
-public class Test1 {
+public class MockitoBaseTest1 {
 
+    /**
+     * 测试mock参数匹配
+     */
     @Test
-    public void test1() {
-        System.out.println("123");
+    public void testArguments() {
+        B b = Mockito.mock(B.class);
+        Mockito.when(b.getSex(1)).thenReturn("男");
+        Mockito.when(b.getSex(2)).thenReturn("女");
+        Assert.assertEquals("男", b.getSex(1));
+        Assert.assertEquals("男", b.getSex(1));
+    }
 
-        //模拟创建一个List对象
-        List<Integer> mock = Mockito.mock(List.class);
-        //调用mock对象的方法
-        mock.add(1);
-        mock.clear();
-        //验证方法是否执行
-        Mockito.verify(mock).add(1);
-        Mockito.verify(mock).clear();
+    /**
+     * 测试匹配任意参数
+     */
+    @Test
+    public void test5() {
+        List list = Mockito.mock(List.class);
+        Mockito.when(list.get(Mockito.anyInt())).thenReturn(1);
+        Assert.assertEquals(1, list.get(100));
+        Assert.assertEquals(1, list.get(101));
     }
 
     /**
@@ -80,29 +89,6 @@ public class Test1 {
         Assert.assertEquals("Beijing", a.getB().getName());
     }
 
-    /**
-     * 测试mock参数匹配
-     */
-    @Test
-    public void testArguments() {
-        B b = Mockito.mock(B.class);
-        Mockito.when(b.getSex(1)).thenReturn("男");
-        Mockito.when(b.getSex(2)).thenReturn("女");
-        Assert.assertEquals("男", b.getSex(1));
-        Assert.assertEquals("男", b.getSex(1));
-    }
-
-
-    /**
-     * 测试匹配任意参数
-     */
-    @Test
-    public void test5() {
-        List list = Mockito.mock(List.class);
-        Mockito.when(list.get(Mockito.anyInt())).thenReturn(1);
-        Assert.assertEquals(1, list.get(100));
-        Assert.assertEquals(1, list.get(101));
-    }
 
 
     @Test
@@ -121,7 +107,6 @@ public class Test1 {
         //following throws runtime exception
         // 抛出异常
         System.out.println(mockedList.get(1));
-
 
     }
 

@@ -27,15 +27,18 @@ public class ListMockTest {
         mockedList.add("one");
         mockedList.clear();
 
+        // 验证mockedList上是否调用了add方法，并且传递的参数是字符串"one"。
         verify(mockedList).add("one");
-        verify(mockedList).clear();
 
+        // 验证mockedList上是否调用了clear方法。
+        verify(mockedList).clear();
     }
 
 
     @Test
     public void mockList() {
         List mockedList = mock(List.class);
+
         when(mockedList.get(anyInt())).thenAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocationOnMock) throws Throwable {

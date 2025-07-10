@@ -1,11 +1,11 @@
 package priv.hb.sample.tool.vavr;
 
-import priv.hb.sample.tool.vavr.pojo.User;
-
 import org.junit.jupiter.api.Test;
 
+import io.vavr.collection.Iterator;
 import io.vavr.collection.List;
-import lombok.val;
+import io.vavr.collection.Map;
+import priv.hb.sample.tool.vavr.pojo.User;
 
 /**
  * @author hubin
@@ -43,8 +43,10 @@ public class ListTest {
         List<Integer> list1 =
                 List.range(1, 10)
                         .map(x -> x + 1)
+                        .map(x -> x + 2)
                         .peek(x -> System.out.println(x))
                         .map(x -> x * 2);
+
 
         System.out.println(list1);
     }
@@ -84,8 +86,25 @@ public class ListTest {
                 new User(2, "hb2"),
                 new User(3, "hb3"));
 
-        val tuple2s = of.groupBy(x -> x.getId());
+        Map<Integer, List<User>> tuple2s = of.groupBy(x -> x.getId());
         System.out.println(tuple2s);
+    }
+
+
+    @Test
+    public void split() {
+        List<User> of = List.of(
+                new User(1, "hb1"),
+                new User(2, "hb2"),
+                new User(3, "hb3"),
+                new User(4, "hb4"),
+                new User(5, "hb5")
+        );
+
+        Iterator<List<User>> grouped = of.grouped(2);
+        System.out.println(grouped.toJavaList());
+
+
     }
 
 

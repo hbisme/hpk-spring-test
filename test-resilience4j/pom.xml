@@ -26,7 +26,7 @@
         <dependency>
             <groupId>io.github.resilience4j</groupId>
             <artifactId>resilience4j-spring-boot2</artifactId>
-            <version>1.4.0</version>
+            <version>1.7.0</version>
         </dependency>
 
         <!-- 引入 Aspectj 依赖，支持 AOP 相关注解、表达式等等 -->

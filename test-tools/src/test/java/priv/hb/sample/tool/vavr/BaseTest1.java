@@ -20,10 +20,13 @@ import io.vavr.collection.Map;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
 import lombok.val;
+import io.vavr.control.Try;
 
 import static io.vavr.API.$;
 import static io.vavr.API.Case;
 import static io.vavr.API.Match;
+
+import java.io.IOException;
 
 
 /**
@@ -268,6 +271,8 @@ public class BaseTest1 {
     }
 
 
+
+
     private static Either<String, Integer> computeWithEither(int marks) {
         if (marks < 85) {
             return Either.left("Marks not acceptable");
@@ -275,5 +280,6 @@ public class BaseTest1 {
             return Either.right(marks);
         }
     }
+
 
 }
